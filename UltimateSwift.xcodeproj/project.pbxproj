@@ -13,6 +13,8 @@
 		36EA081D2953AA06001CBEA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EA081C2953AA06001CBEA1 /* Preview Assets.xcassets */; };
 		36EA08252953AAFD001CBEA1 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08232953AAFD001CBEA1 /* Main.xcdatamodeld */; };
 		36EA087D295E257D001CBEA1 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA087C295E257D001CBEA1 /* DataController.swift */; };
+		36EA0881295F63E5001CBEA1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA0880295F63E5001CBEA1 /* HomeView.swift */; };
+		36EA0883295F6476001CBEA1 /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA0882295F6476001CBEA1 /* ProjectsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		36EA087C295E257D001CBEA1 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		36EA087E295F6301001CBEA1 /* UltimateSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UltimateSwift.entitlements; sourceTree = "<group>"; };
 		36EA087F295F630E001CBEA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		36EA0880295F63E5001CBEA1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		36EA0882295F6476001CBEA1 /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,8 @@
 				36EA081B2953AA06001CBEA1 /* Preview Content */,
 				36EA08232953AAFD001CBEA1 /* Main.xcdatamodeld */,
 				36EA087C295E257D001CBEA1 /* DataController.swift */,
+				36EA0880295F63E5001CBEA1 /* HomeView.swift */,
+				36EA0882295F6476001CBEA1 /* ProjectsView.swift */,
 			);
 			path = UltimateSwift;
 			sourceTree = "<group>";
@@ -147,9 +153,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36EA0883295F6476001CBEA1 /* ProjectsView.swift in Sources */,
 				36EA08252953AAFD001CBEA1 /* Main.xcdatamodeld in Sources */,
 				36EA087D295E257D001CBEA1 /* DataController.swift in Sources */,
 				36EA08182953AA03001CBEA1 /* ContentView.swift in Sources */,
+				36EA0881295F63E5001CBEA1 /* HomeView.swift in Sources */,
 				36EA08162953AA03001CBEA1 /* UltimateSwiftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
