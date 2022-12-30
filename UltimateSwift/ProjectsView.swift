@@ -10,6 +10,8 @@ import SwiftUI
 struct ProjectsView: View {
 
   //MARK: - View Properties
+  static let openTag: String? = "Open"
+  static let closedTag: String? = "Closed"
   var showClosedProjects: Bool
   let projects: FetchRequest<Project>
 

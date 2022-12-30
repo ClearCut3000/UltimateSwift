@@ -11,6 +11,7 @@ struct HomeView: View {
 
   //MARK: - View Properties
   @EnvironmentObject var dataController: DataController
+  static let tag: String? = "Home"
 
   //MARK: - View Body
     var body: some View {
