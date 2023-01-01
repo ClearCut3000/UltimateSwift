@@ -17,6 +17,7 @@
 		36EA0883295F6476001CBEA1 /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA0882295F6476001CBEA1 /* ProjectsView.swift */; };
 		36EA08AA2960D081001CBEA1 /* Item-CoreDataHelper+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08A92960D081001CBEA1 /* Item-CoreDataHelper+Extension.swift */; };
 		36EA08AC2960D1FF001CBEA1 /* Project-CoreDataHelper+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08AB2960D1FF001CBEA1 /* Project-CoreDataHelper+Extension.swift */; };
+		36EA08AE2960D698001CBEA1 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08AD2960D698001CBEA1 /* EditItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		36EA0882295F6476001CBEA1 /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
 		36EA08A92960D081001CBEA1 /* Item-CoreDataHelper+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item-CoreDataHelper+Extension.swift"; sourceTree = "<group>"; };
 		36EA08AB2960D1FF001CBEA1 /* Project-CoreDataHelper+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project-CoreDataHelper+Extension.swift"; sourceTree = "<group>"; };
+		36EA08AD2960D698001CBEA1 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				36EA0882295F6476001CBEA1 /* ProjectsView.swift */,
 				36EA08A92960D081001CBEA1 /* Item-CoreDataHelper+Extension.swift */,
 				36EA08AB2960D1FF001CBEA1 /* Project-CoreDataHelper+Extension.swift */,
+				36EA08AD2960D698001CBEA1 /* EditItemView.swift */,
 			);
 			path = UltimateSwift;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				36EA08182953AA03001CBEA1 /* ContentView.swift in Sources */,
 				36EA0881295F63E5001CBEA1 /* HomeView.swift in Sources */,
 				36EA08162953AA03001CBEA1 /* UltimateSwiftApp.swift in Sources */,
+				36EA08AE2960D698001CBEA1 /* EditItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
