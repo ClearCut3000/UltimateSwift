@@ -10,18 +10,27 @@ import SwiftUI
 @main
 struct UltimateSwiftApp: App {
 
+  //MARK: - Properties
   @StateObject var dataController: DataController
 
+  //MARK: - Init
   init() {
     let dataController = DataController()
     _dataController = StateObject(wrappedValue: dataController)
   }
 
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-            .environment(\.managedObjectContext, dataController.container.viewContext)
-            .environmentObject(dataController)
-        }
+  //MARK: - Body
+  var body: some Scene {
+    WindowGroup {
+      ContentView()
+        .environment(\.managedObjectContext, dataController.container.viewContext)
+        .environmentObject(dataController)
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification), perform: save(_:))
     }
+  }
+
+  //MARK: - Methods
+  func save(_ note: Notification) {
+    dataController.save()
+  }
 }
