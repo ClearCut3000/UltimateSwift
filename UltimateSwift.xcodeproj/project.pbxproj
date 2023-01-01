@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		362020E72962052200F13F5B /* IteemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362020E62962052200F13F5B /* IteemRowView.swift */; };
 		36EA08162953AA03001CBEA1 /* UltimateSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */; };
 		36EA08182953AA03001CBEA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08172953AA03001CBEA1 /* ContentView.swift */; };
 		36EA081A2953AA06001CBEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EA08192953AA06001CBEA1 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		362020E62962052200F13F5B /* IteemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IteemRowView.swift; sourceTree = "<group>"; };
 		36EA08122953AA03001CBEA1 /* UltimateSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimateSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftApp.swift; sourceTree = "<group>"; };
 		36EA08172953AA03001CBEA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				36EA08A92960D081001CBEA1 /* Item-CoreDataHelper+Extension.swift */,
 				36EA08AB2960D1FF001CBEA1 /* Project-CoreDataHelper+Extension.swift */,
 				36EA08AD2960D698001CBEA1 /* EditItemView.swift */,
+				362020E62962052200F13F5B /* IteemRowView.swift */,
 			);
 			path = UltimateSwift;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				362020E72962052200F13F5B /* IteemRowView.swift in Sources */,
 				36EA08AC2960D1FF001CBEA1 /* Project-CoreDataHelper+Extension.swift in Sources */,
 				36EA0883295F6476001CBEA1 /* ProjectsView.swift in Sources */,
 				36EA08252953AAFD001CBEA1 /* Main.xcdatamodeld in Sources */,
