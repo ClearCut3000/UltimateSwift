@@ -13,6 +13,7 @@ struct ProjectsView: View {
   @EnvironmentObject var dataController: DataController
   @Environment(\.managedObjectContext) var managedObjectContext
   @State private var showingSortOrder = false
+  @State private var sordOrder = Item.SortOrder.optimazed
   static let openTag: String? = "Open"
   static let closedTag: String? = "Closed"
   var showClosedProjects: Bool
@@ -90,16 +91,23 @@ struct ProjectsView: View {
         }
         .actionSheet(isPresented: $showingSortOrder) {
           ActionSheet(title: Text("Sort Items"), message: nil, buttons: [
-            .default(Text("Optimazed")) { },
-            .default(Text("Creation Date")) { },
-            .default(Text("Title")) { },
+            .default(Text("Optimazed")) { sordOrder = .optimazed },
+            .default(Text("Creation Date")) { sordOrder = .creationDate },
+            .default(Text("Title")) { sordOrder = .title },
           ])
         }
       }
     }
 
   func items(for project: Project) -> [Item] {
-    []
+    switch sordOrder {
+    case .title:
+      return project.projectItems.sorted { $0.itemTitle < $1.itemTitle }
+    case .optimazed:
+      return project.projectItemsDefaultSorted
+    case .creationDate:
+      return project.projectItems.sorted { $0.itemCreationDate < $1.itemCreationDate }
+    }
   }
 }
 
