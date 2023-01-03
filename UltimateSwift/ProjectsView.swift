@@ -12,6 +12,7 @@ struct ProjectsView: View {
   //MARK: - View Properties
   @EnvironmentObject var dataController: DataController
   @Environment(\.managedObjectContext) var managedObjectContext
+  @State private var showingSortOrder = false
   static let openTag: String? = "Open"
   static let closedTag: String? = "Closed"
   var showClosedProjects: Bool
@@ -36,7 +37,7 @@ struct ProjectsView: View {
         List {
           ForEach(projects.wrappedValue) { project in
             Section(header: Text(project.projectTitle)) {
-              ForEach(project.projectItems) { item in
+              ForEach(items(for: project)) { item in
                 ItemRowView(item: item)
               }
               .onDelete { offsets in
@@ -65,21 +66,41 @@ struct ProjectsView: View {
         .listStyle(.insetGrouped)
         .navigationTitle(showClosedProjects ? "Closed Projects" : "Open Projects")
         .toolbar {
-          if showClosedProjects == false {
-            Button {
-              withAnimation {
-                let project = Project(context: managedObjectContext)
-                project.closed = false
-                project.creationDate = Date()
-                dataController.save()
+          ToolbarItem(placement: .navigationBarTrailing) {
+            if showClosedProjects == false {
+              Button {
+                withAnimation {
+                  let project = Project(context: managedObjectContext)
+                  project.closed = false
+                  project.creationDate = Date()
+                  dataController.save()
+                }
+              } label: {
+                Label("Add Project", systemImage: "plus")
               }
+            }
+          }
+          ToolbarItem(placement: .navigationBarLeading) {
+            Button {
+              showingSortOrder.toggle()
             } label: {
-              Label("Add Project", systemImage: "plus")
+            Label("Sort", systemImage: "arrow.up.arrow.down")
             }
           }
         }
+        .actionSheet(isPresented: $showingSortOrder) {
+          ActionSheet(title: Text("Sort Items"), message: nil, buttons: [
+            .default(Text("Optimazed")) { },
+            .default(Text("Creation Date")) { },
+            .default(Text("Title")) { },
+          ])
+        }
       }
     }
+
+  func items(for project: Project) -> [Item] {
+    []
+  }
 }
 
 struct ProjectsView_Previews: PreviewProvider {

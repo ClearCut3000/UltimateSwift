@@ -38,10 +38,14 @@ extension Project {
     return Double(completedItems.count) / Double(originalItems.count)
   }
 
+  /// No sorting items property
   var projectItems: [Item] {
-    let itemsArray = items?.allObjects as? [Item] ?? []
+    items?.allObjects as? [Item] ?? []
+  }
 
-    return itemsArray.sorted {first, second in
+  /// Default sorting items property
+  var projectItemsDefaultSorted: [Item] {
+    projectItems.sorted {first, second in
       if first.completed == false {
         if second.completed == true {
           return true
