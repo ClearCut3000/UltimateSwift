@@ -1,5 +1,5 @@
 //
-//  IteemRowView.swift
+//  ItemRowView.swift
 //  UltimateSwift
 //
 //  Created by Николай Никитин on 01.01.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IteemRowView: View {
+struct ItemRowView: View {
 
   //MARK: - View Properties
   @ObservedObject var item: Item
@@ -24,6 +24,6 @@ struct IteemRowView: View {
 
 struct IteemRowView_Previews: PreviewProvider {
     static var previews: some View {
-      IteemRowView(item: Item.example)
+      ItemRowView(item: Item.example)
     }
 }

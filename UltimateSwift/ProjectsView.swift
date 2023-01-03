@@ -37,14 +37,27 @@ struct ProjectsView: View {
           ForEach(projects.wrappedValue) { project in
             Section(header: Text(project.projectTitle)) {
               ForEach(project.projectItems) { item in
-                IteemRowView(item: item)
+                ItemRowView(item: item)
               }
               .onDelete { offsets in
+                let allItems = project.projectItems
                 for offset in offsets {
-                  let item = project.projectItems[offset]
+                  let item = allItems[offset]
                   dataController.delete(item)
                 }
                 dataController.save()
+              }
+              if showClosedProjects == false {
+                Button {
+                  withAnimation {
+                    let item = Item(context: managedObjectContext)
+                    item.project = project
+                    item.creationDate = Date()
+                    dataController.save()
+                  }
+                } label: {
+                  Label("Add new item", systemImage: "plus")
+                }
               }
             }
           }
