@@ -11,6 +11,7 @@
 		362020E929620C1A00F13F5B /* Binding-onChange+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362020E829620C1A00F13F5B /* Binding-onChange+Extension.swift */; };
 		362020EC29646CA800F13F5B /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362020EB29646CA800F13F5B /* ProjectHeaderView.swift */; };
 		362020EE2964706300F13F5B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 362020ED2964706300F13F5B /* Colors.xcassets */; };
+		362020F02964719200F13F5B /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362020EF2964719200F13F5B /* EditProjectView.swift */; };
 		36EA08162953AA03001CBEA1 /* UltimateSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */; };
 		36EA08182953AA03001CBEA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08172953AA03001CBEA1 /* ContentView.swift */; };
 		36EA081A2953AA06001CBEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EA08192953AA06001CBEA1 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		362020E829620C1A00F13F5B /* Binding-onChange+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding-onChange+Extension.swift"; sourceTree = "<group>"; };
 		362020EB29646CA800F13F5B /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
 		362020ED2964706300F13F5B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		362020EF2964719200F13F5B /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
 		36EA08122953AA03001CBEA1 /* UltimateSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimateSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftApp.swift; sourceTree = "<group>"; };
 		36EA08172953AA03001CBEA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				362020E62962052200F13F5B /* ItemRowView.swift */,
 				362020EB29646CA800F13F5B /* ProjectHeaderView.swift */,
 				362020ED2964706300F13F5B /* Colors.xcassets */,
+				362020EF2964719200F13F5B /* EditProjectView.swift */,
 			);
 			path = UltimateSwift;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				362020EC29646CA800F13F5B /* ProjectHeaderView.swift in Sources */,
 				36EA08AC2960D1FF001CBEA1 /* Project-CoreDataHelper+Extension.swift in Sources */,
 				36EA0883295F6476001CBEA1 /* ProjectsView.swift in Sources */,
+				362020F02964719200F13F5B /* EditProjectView.swift in Sources */,
 				36EA08252953AAFD001CBEA1 /* Main.xcdatamodeld in Sources */,
 				36EA087D295E257D001CBEA1 /* DataController.swift in Sources */,
 				362020E929620C1A00F13F5B /* Binding-onChange+Extension.swift in Sources */,
