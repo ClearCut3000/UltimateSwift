@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		362020E72962052200F13F5B /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362020E62962052200F13F5B /* ItemRowView.swift */; };
 		362020E929620C1A00F13F5B /* Binding-onChange+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362020E829620C1A00F13F5B /* Binding-onChange+Extension.swift */; };
+		362020EC29646CA800F13F5B /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362020EB29646CA800F13F5B /* ProjectHeaderView.swift */; };
 		36EA08162953AA03001CBEA1 /* UltimateSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */; };
 		36EA08182953AA03001CBEA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08172953AA03001CBEA1 /* ContentView.swift */; };
 		36EA081A2953AA06001CBEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EA08192953AA06001CBEA1 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		362020E62962052200F13F5B /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = "<group>"; };
 		362020E829620C1A00F13F5B /* Binding-onChange+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding-onChange+Extension.swift"; sourceTree = "<group>"; };
+		362020EB29646CA800F13F5B /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
 		36EA08122953AA03001CBEA1 /* UltimateSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimateSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftApp.swift; sourceTree = "<group>"; };
 		36EA08172953AA03001CBEA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				362020EA29620E0B00F13F5B /* Extensions */,
 				36EA08AD2960D698001CBEA1 /* EditItemView.swift */,
 				362020E62962052200F13F5B /* ItemRowView.swift */,
+				362020EB29646CA800F13F5B /* ProjectHeaderView.swift */,
 			);
 			path = UltimateSwift;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				362020E72962052200F13F5B /* ItemRowView.swift in Sources */,
+				362020EC29646CA800F13F5B /* ProjectHeaderView.swift in Sources */,
 				36EA08AC2960D1FF001CBEA1 /* Project-CoreDataHelper+Extension.swift in Sources */,
 				36EA0883295F6476001CBEA1 /* ProjectsView.swift in Sources */,
 				36EA08252953AAFD001CBEA1 /* Main.xcdatamodeld in Sources */,
