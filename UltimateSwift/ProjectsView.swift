@@ -13,7 +13,7 @@ struct ProjectsView: View {
   @EnvironmentObject var dataController: DataController
   @Environment(\.managedObjectContext) var managedObjectContext
   @State private var showingSortOrder = false
-  @State private var sordOrder = Item.SortOrder.optimazed
+  @State private var sortOrder = Item.SortOrder.optimazed
   static let openTag: String? = "Open"
   static let closedTag: String? = "Closed"
   var showClosedProjects: Bool
@@ -38,7 +38,7 @@ struct ProjectsView: View {
         List {
           ForEach(projects.wrappedValue) { project in
             Section(header: ProjectHeaderView(project: project)) {
-              ForEach(items(for: project)) { item in
+              ForEach(project.projectItems(using: sortOrder)) { item in
                 ItemRowView(item: item)
               }
               .onDelete { offsets in
@@ -91,24 +91,13 @@ struct ProjectsView: View {
         }
         .actionSheet(isPresented: $showingSortOrder) {
           ActionSheet(title: Text("Sort Items"), message: nil, buttons: [
-            .default(Text("Optimazed")) { sordOrder = .optimazed },
-            .default(Text("Creation Date")) { sordOrder = .creationDate },
-            .default(Text("Title")) { sordOrder = .title },
+            .default(Text("Optimazed")) { sortOrder = .optimazed },
+            .default(Text("Creation Date")) { sortOrder = .creationDate },
+            .default(Text("Title")) { sortOrder = .title },
           ])
         }
       }
     }
-
-  func items(for project: Project) -> [Item] {
-    switch sordOrder {
-    case .title:
-      return project.projectItems.sorted { $0.itemTitle < $1.itemTitle }
-    case .optimazed:
-      return project.projectItemsDefaultSorted
-    case .creationDate:
-      return project.projectItems.sorted { $0.itemCreationDate < $1.itemCreationDate }
-    }
-  }
 }
 
 struct ProjectsView_Previews: PreviewProvider {

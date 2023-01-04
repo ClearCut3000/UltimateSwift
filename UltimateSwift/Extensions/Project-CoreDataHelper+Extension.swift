@@ -65,4 +65,16 @@ extension Project {
       return first.itemCreationDate < second.itemCreationDate
     }
   }
+
+  /// custom sorting methods for projects items
+  func projectItems(using sortOrder: Item.SortOrder) -> [Item] {
+    switch sortOrder {
+    case .title:
+      return projectItems.sorted(by: \Item.itemTitle)
+    case .optimazed:
+      return projectItemsDefaultSorted
+    case .creationDate:
+      return projectItems.sorted(by: \Item.itemCreationDate)
+    }
+  }
 }
