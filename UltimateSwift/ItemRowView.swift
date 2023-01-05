@@ -10,20 +10,38 @@ import SwiftUI
 struct ItemRowView: View {
 
   //MARK: - View Properties
+  @ObservedObject var project: Project
   @ObservedObject var item: Item
+  var icon: some View {
+    if item.completed {
+      return Image(systemName: "checkmark.circle")
+        .foregroundColor(Color(project.projectColor))
+    } else if item.priority == 3 {
+      return Image(systemName: "exclamationmark.triangle")
+        .foregroundColor(Color(project.projectColor))
+    } else {
+      return Image(systemName: "checkmark.circle")
+        .foregroundColor(.clear)
+    }
+  }
 
   //MARK: - View Body
     var body: some View {
       NavigationLink {
         EditItemView(item: item)
       } label: {
-        Text(item.itemTitle)
+        Label {
+          Text(item.itemTitle)
+        } icon: {
+          icon
+        }
+
       }
     }
 }
 
 struct IteemRowView_Previews: PreviewProvider {
     static var previews: some View {
-      ItemRowView(item: Item.example)
+      ItemRowView(project: Project.example, item: Item.example)
     }
 }
