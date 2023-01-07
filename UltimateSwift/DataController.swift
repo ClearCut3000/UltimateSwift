@@ -77,4 +77,8 @@ class DataController: ObservableObject {
     let projectsBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: projectsFetchRequest)
     _ = try? container.viewContext.execute(projectsBatchDeleteRequest)
   }
+
+  func count<T>(for fetchRequest: NSFetchRequest<T>) -> Int {
+    (try? container.viewContext.count(for: fetchRequest)) ?? 0
+  }
 }
