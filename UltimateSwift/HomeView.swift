@@ -5,30 +5,44 @@
 //  Created by Николай Никитин on 30.12.2022.
 //
 
+import CoreData
 import SwiftUI
 
 struct HomeView: View {
 
   //MARK: - View Properties
-  @EnvironmentObject var dataController: DataController
   static let tag: String? = "Home"
+  @EnvironmentObject var dataController: DataController
+  @FetchRequest(entity: Project.entity(),
+                sortDescriptors: [NSSortDescriptor(keyPath: \Project.title,
+                                                   ascending: true)],
+                predicate: NSPredicate(format: "closed = false")) var projects: FetchedResults<Project>
+  let items: FetchRequest<Item>
+
+  //MARK: - View Init
+  init() {
+    let request: NSFetchRequest<Item> = Item.fetchRequest()
+    request.predicate = NSPredicate(format: "closed = false")
+    request.sortDescriptors = [NSSortDescriptor(keyPath: \Item.priority,
+                                               ascending: false)]
+    request.fetchLimit = 10
+    items = FetchRequest(fetchRequest: request)
+  }
 
   //MARK: - View Body
-    var body: some View {
-      NavigationStack {
-        VStack {
-          Button("Add Data") {
-            dataController.deleteAll()
-            try? dataController.createSampleData()
-          }
-        }
-        .navigationTitle("Home")
+  var body: some View {
+    NavigationView {
+      ScrollView {
+
       }
+      .background(Color.systemGroupedBackground.ignoresSafeArea())
+      .navigationTitle("Home")
     }
+  }
 }
 
 struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
+  static var previews: some View {
+    HomeView()
+  }
 }
