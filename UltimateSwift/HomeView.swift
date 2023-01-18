@@ -27,7 +27,7 @@ struct HomeView: View {
     let request: NSFetchRequest<Item> = Item.fetchRequest()
     request.predicate = NSPredicate(format: "closed = false")
     request.sortDescriptors = [NSSortDescriptor(keyPath: \Item.priority,
-                                               ascending: false)]
+                                                ascending: false)]
     request.fetchLimit = 10
     items = FetchRequest(fetchRequest: request)
   }
@@ -56,11 +56,53 @@ struct HomeView: View {
               }
             }
             .padding([.horizontal, .top])
+            .fixedSize(horizontal: false, vertical: true)
           }
+          VStack(alignment: .leading) {
+            list("Up next", for: items.wrappedValue.prefix(3))
+            list("More to explore", for: items.wrappedValue.dropFirst(3))
+          }
+          .padding(.horizontal)
         }
       }
       .background(Color.systemGroupedBackground.ignoresSafeArea())
       .navigationTitle("Home")
+    }
+  }
+
+  //MARK: - View Methods
+  @ViewBuilder func list(_ title: String, for items: FetchedResults<Item>.SubSequence) -> some View {
+    if items.isEmpty {
+      EmptyView()
+    } else {
+      Text(title)
+        .font(.headline)
+        .foregroundColor(.secondary)
+        .padding(.top)
+      ForEach(items) { item in
+        NavigationLink(destination: EditItemView(item: item)) {
+          HStack(spacing: 20) {
+            Circle()
+              .stroke(Color(item.project?.projectColor ?? "Light Blue"), lineWidth: 3)
+              .frame(width: 44, height: 44)
+            VStack(alignment: .leading) {
+              Text(item.itemTitle)
+                .font(.title2)
+                .foregroundColor(.primary)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+              if item.itemDetail.isEmpty == false {
+                Text(item.itemDetail)
+                  .foregroundColor(.secondary)
+              }
+            }
+          }
+          .padding()
+          .background(Color.secondarySystemGroupedBackground)
+          .cornerRadius(10)
+          .shadow(color: Color.black.opacity(0.2), radius: 5)
+        }
+      }
     }
   }
 }
