@@ -25,7 +25,7 @@ struct HomeView: View {
   //MARK: - View Init
   init() {
     let request: NSFetchRequest<Item> = Item.fetchRequest()
-    request.predicate = NSPredicate(format: "closed = false")
+    request.predicate = NSPredicate(format: "completed = false")
     request.sortDescriptors = [NSSortDescriptor(keyPath: \Item.priority,
                                                 ascending: false)]
     request.fetchLimit = 10
