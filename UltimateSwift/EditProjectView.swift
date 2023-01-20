@@ -32,7 +32,7 @@ struct EditProjectView: View {
   //MARK: - View Body
     var body: some View {
       Form {
-        Section(header: Text("Basic Setting")) {
+        Section(header: Text("Basic Settings")) {
           TextField("Project Name", text: $title.onChange(update))
           TextField("Description of thise project", text: $detail.onChange(update))
         }
@@ -74,7 +74,7 @@ struct EditProjectView: View {
       }
       .alert(isPresented: $showingDeleteConform) {
         Alert(title: Text("Delete project?"),
-              message: Text("Are you sure you want to dele all project? You will also delete all items it contains!"),
+              message: Text("Are you sure you want to delete all project? You will also delete all items it contains!"),
               primaryButton: .default(Text("Delete"), action: delete),
               secondaryButton: .cancel())
       }
