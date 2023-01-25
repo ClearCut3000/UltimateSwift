@@ -47,21 +47,11 @@ struct ProjectsView: View {
                   ItemRowView(project: project, item: item)
                 }
                 .onDelete { offsets in
-                  let allItems = project.projectItems(using: sortOrder)
-                  for offset in offsets {
-                    let item = allItems[offset]
-                    dataController.delete(item)
-                  }
-                  dataController.save()
+                  delete(offsets, from: project)
                 }
                 if showClosedProjects == false {
                   Button {
-                    withAnimation {
-                      let item = Item(context: managedObjectContext)
-                      item.project = project
-                      item.creationDate = Date()
-                      dataController.save()
-                    }
+                    addItem(to: project)
                   } label: {
                     Label("Add New Item", systemImage: "plus")
                   }
@@ -77,12 +67,7 @@ struct ProjectsView: View {
         ToolbarItem(placement: .navigationBarTrailing) {
           if showClosedProjects == false {
             Button {
-              withAnimation {
-                let project = Project(context: managedObjectContext)
-                project.closed = false
-                project.creationDate = Date()
-                dataController.save()
-              }
+              addProject()
             } label: {
               if UIAccessibility.isVoiceOverRunning {
                 Text("Add Project")
@@ -109,6 +94,34 @@ struct ProjectsView: View {
       }
       SelectSomethingView()
     }
+  }
+
+  //MARK: - View Methods
+  func addProject() {
+    withAnimation {
+      let project = Project(context: managedObjectContext)
+      project.closed = false
+      project.creationDate = Date()
+      dataController.save()
+    }
+  }
+
+  func addItem(to project: Project) {
+    withAnimation {
+      let item = Item(context: managedObjectContext)
+      item.project = project
+      item.creationDate = Date()
+      dataController.save()
+    }
+  }
+  
+  func delete(_ offsets: IndexSet, from project: Project) {
+    let allItems = project.projectItems(using: sortOrder)
+    for offset in offsets {
+      let item = allItems[offset]
+      dataController.delete(item)
+    }
+    dataController.save()
   }
 }
 
