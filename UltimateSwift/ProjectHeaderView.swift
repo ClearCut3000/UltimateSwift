@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ProjectHeaderView: View {
 
-  //MARK: - View Properties
+  // MARK: - View Properties
   @ObservedObject var project: Project
 
-  //MARK: - View Body
+  // MARK: - View Body
     var body: some View {
       HStack {
         VStack(alignment: .leading) {

@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ProjectSummaryView: View {
 
-  //MARK: - View Properties
+  // MARK: - View Properties
   @ObservedObject var project: Project
 
-  //MARK: - View Body
+  // MARK: - View Body
     var body: some View {
       VStack(alignment: .leading) {
         Text("\(project.projectItems.count) items")

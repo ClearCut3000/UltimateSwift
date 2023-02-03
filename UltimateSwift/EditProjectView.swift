@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EditProjectView: View {
 
-  //MARK: - View Properties
+  // MARK: - View Properties
   let project: Project
   @EnvironmentObject var dataController: DataController
   @Environment(\.presentationMode) var presentationMode
@@ -21,7 +21,7 @@ struct EditProjectView: View {
     GridItem(.adaptive(minimum: 44))
   ]
 
-  //MARK: - View Init
+  // MARK: - View Init
   init(project: Project) {
     self.project = project
     _title = State(wrappedValue: project.projectTitle)
@@ -29,7 +29,7 @@ struct EditProjectView: View {
     _color = State(wrappedValue: project.projectColor)
   }
 
-  //MARK: - View Body
+  // MARK: - View Body
   var body: some View {
     Form {
       Section(header: Text("Basic Settings")) {
@@ -67,7 +67,7 @@ struct EditProjectView: View {
     }
   }
 
-  //MARK: - View Methods
+  // MARK: - View Methods
   func update() {
     project.title = title
     project.detail = detail

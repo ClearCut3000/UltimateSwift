@@ -9,11 +9,11 @@ import SwiftUI
 
 struct ItemListView: View {
 
-  //MARK: - View Properties
+  // MARK: - View Properties
   let title: LocalizedStringKey
   let items: FetchedResults<Item>.SubSequence
 
-  //MARK: - View Body
+  // MARK: - View Body
   var body: some View {
     if items.isEmpty {
       EmptyView()

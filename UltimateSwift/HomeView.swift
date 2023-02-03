@@ -10,7 +10,7 @@ import SwiftUI
 
 struct HomeView: View {
 
-  //MARK: - View Properties
+  // MARK: - View Properties
   static let tag: String? = "Home"
   @EnvironmentObject var dataController: DataController
   @FetchRequest(entity: Project.entity(),
@@ -22,7 +22,7 @@ struct HomeView: View {
     [GridItem(.fixed(100))]
   }
 
-  //MARK: - View Init
+  // MARK: - View Init
   init() {
     let request: NSFetchRequest<Item> = Item.fetchRequest()
     let completedPredicate = NSPredicate(format: "completed = false")
@@ -35,7 +35,7 @@ struct HomeView: View {
     items = FetchRequest(fetchRequest: request)
   }
 
-  //MARK: - View Body
+  // MARK: - View Body
   var body: some View {
     NavigationView {
       ScrollView {

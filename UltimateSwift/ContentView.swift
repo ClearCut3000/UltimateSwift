@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
 
-  //MARK: - View Properties
+  // MARK: - View Properties
   @SceneStorage("selectedView") var selectedView: String?
 
-  //MARK: - View Body
+  // MARK: - View Body
   var body: some View {
     TabView(selection: $selectedView) {
       HomeView()

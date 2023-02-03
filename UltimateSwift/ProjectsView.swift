@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProjectsView: View {
 
-  //MARK: - View Properties
+  // MARK: - View Properties
   @EnvironmentObject var dataController: DataController
   @Environment(\.managedObjectContext) var managedObjectContext
   @State private var showingSortOrder = false
@@ -65,7 +65,7 @@ struct ProjectsView: View {
     }
   }
 
-  //MARK: - View Init
+  // MARK: - View Init
   init(showClosedProjects: Bool) {
     self.showClosedProjects = showClosedProjects
 
@@ -78,7 +78,7 @@ struct ProjectsView: View {
     )
   }
 
-  //MARK: - View Body
+  // MARK: - View Body
   var body: some View {
     NavigationView {
       Group {
@@ -98,14 +98,14 @@ struct ProjectsView: View {
         ActionSheet(title: Text("Sort Items"), message: nil, buttons: [
           .default(Text("Optimazed")) { sortOrder = .optimazed },
           .default(Text("Creation Date")) { sortOrder = .creationDate },
-          .default(Text("Title")) { sortOrder = .title },
+          .default(Text("Title")) { sortOrder = .title }
         ])
       }
       SelectSomethingView()
     }
   }
 
-  //MARK: - View Methods
+  // MARK: - View Methods
   func addProject() {
     withAnimation {
       let project = Project(context: managedObjectContext)

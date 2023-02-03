@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EditItemView: View {
 
-  //MARK: - View Properties
+  // MARK: - View Properties
   let item: Item
   @EnvironmentObject var dataController: DataController
   @State private var title: String
@@ -17,7 +17,7 @@ struct EditItemView: View {
   @State private var priority: Int
   @State private var completed: Bool
 
-  //MARK: - View Init
+  // MARK: - View Init
   init(item: Item) {
     self.item = item
     _title = State(wrappedValue: item.itemTitle)
@@ -26,7 +26,7 @@ struct EditItemView: View {
     _completed = State(wrappedValue: item.completed)
   }
 
-  //MARK: - View Body
+  // MARK: - View Body
     var body: some View {
       Form {
         Section(header: Text("Basic Settings")) {
@@ -49,7 +49,7 @@ struct EditItemView: View {
       .onDisappear(perform: dataController.save)
     }
 
-  //MARK: - View Methods
+  // MARK: - View Methods
   func update() {
     item.project?.objectWillChange.send()
     item.title = title

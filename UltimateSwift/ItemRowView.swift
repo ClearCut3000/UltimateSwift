@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ItemRowView: View {
 
-  //MARK: - View Properties
+  // MARK: - View Properties
   @ObservedObject var project: Project
   @ObservedObject var item: Item
   var icon: some View {
@@ -35,7 +35,7 @@ struct ItemRowView: View {
     }
   }
 
-  //MARK: - View Body
+  // MARK: - View Body
     var body: some View {
       NavigationLink {
         EditItemView(item: item)
