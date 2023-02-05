@@ -24,10 +24,13 @@ struct HomeView: View {
 
   // MARK: - View Init
   init() {
+    // Construct a fetch request to show the 10 highest-priority,
+    // incomplete items from open projects.
     let request: NSFetchRequest<Item> = Item.fetchRequest()
     let completedPredicate = NSPredicate(format: "completed = false")
     let opedPredicate = NSPredicate(format: "project.closed = false")
-    let compoundPredicate = NSCompoundPredicate(type: .and, subpredicates: [completedPredicate, opedPredicate])
+    let compoundPredicate = NSCompoundPredicate(type: .and,
+                                                subpredicates: [completedPredicate, opedPredicate])
     request.predicate = completedPredicate
     request.sortDescriptors = [NSSortDescriptor(keyPath: \Item.priority,
                                                 ascending: false)]

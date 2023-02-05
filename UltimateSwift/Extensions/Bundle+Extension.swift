@@ -5,6 +5,8 @@
 //  Created by Николай Никитин on 06.01.2023.
 //
 
+// swiftlint:disable line_length
+
 import Foundation
 
 extension Bundle {

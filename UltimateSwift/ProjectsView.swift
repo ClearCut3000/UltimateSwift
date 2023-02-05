@@ -46,6 +46,11 @@ struct ProjectsView: View {
         Button {
           addProject()
         } label: {
+          // In iOS 14.3 VoiceOver has a glitch that reads the label
+          // "Add Project" as "Add" no matter what accessibility label
+          // we give this button when using a label. As a result, when
+          // VoiceOver is running we use a text view for the button instead,
+          // forcing a correct reading without losing the original layout.
           if UIAccessibility.isVoiceOverRunning {
             Text("Add Project")
           } else {
