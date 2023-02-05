@@ -86,14 +86,74 @@
 		362020EA29620E0B00F13F5B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				36EA08A92960D081001CBEA1 /* Item-CoreDataHelper+Extension.swift */,
-				36EA08AB2960D1FF001CBEA1 /* Project-CoreDataHelper+Extension.swift */,
+				36DDA94829902C550084E9FA /* Models */,
 				362020E829620C1A00F13F5B /* Binding-onChange+Extension.swift */,
 				3620211A29661C0C00F13F5B /* Sequence + Extension.swift */,
 				3620211E2968BE7800F13F5B /* Bundle+Extension.swift */,
 				362DD8B02977380E0042ABF7 /* Color-Additions+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		36DDA94829902C550084E9FA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				36EA08A92960D081001CBEA1 /* Item-CoreDataHelper+Extension.swift */,
+				36EA08AB2960D1FF001CBEA1 /* Project-CoreDataHelper+Extension.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		36DDA94B29902D0A0084E9FA /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				3684ED85297B26CB009559BD /* Localizable.strings */,
+				3684ED89297B28F0009559BD /* Localizable.stringsdict */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		36DDA94C29902F430084E9FA /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				36DDA94E29902F630084E9FA /* Projects */,
+				36DDA94D29902F5B0084E9FA /* Home */,
+				36DDA94F29902F690084E9FA /* Awards */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		36DDA94D29902F5B0084E9FA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				36EA0880295F63E5001CBEA1 /* HomeView.swift */,
+				3684ED8F297F4586009559BD /* ItemListView.swift */,
+				3684ED912981CF09009559BD /* ProjectSummaryView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		36DDA94E29902F630084E9FA /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				36EA0882295F6476001CBEA1 /* ProjectsView.swift */,
+				3620211C296762BD00F13F5B /* SelectSomethingView.swift */,
+				362020EB29646CA800F13F5B /* ProjectHeaderView.swift */,
+				362020E62962052200F13F5B /* ItemRowView.swift */,
+				36EA08AD2960D698001CBEA1 /* EditItemView.swift */,
+				362020EF2964719200F13F5B /* EditProjectView.swift */,
+			);
+			path = Projects;
+			sourceTree = "<group>";
+		};
+		36DDA94F29902F690084E9FA /* Awards */ = {
+			isa = PBXGroup;
+			children = (
+				362021242968C34800F13F5B /* AwardsView.swift */,
+				362021222968C2C800F13F5B /* Award.swift */,
+				3684ED8D297B2A19009559BD /* Awards.json */,
+			);
+			path = Awards;
 			sourceTree = "<group>";
 		};
 		36EA08092953AA03001CBEA1 = {
@@ -115,30 +175,18 @@
 		36EA08142953AA03001CBEA1 /* UltimateSwift */ = {
 			isa = PBXGroup;
 			children = (
+				36DDA94C29902F430084E9FA /* Screens */,
 				36EA087F295F630E001CBEA1 /* Info.plist */,
 				36EA087E295F6301001CBEA1 /* UltimateSwift.entitlements */,
 				36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */,
 				36EA08172953AA03001CBEA1 /* ContentView.swift */,
+				36EA087C295E257D001CBEA1 /* DataController.swift */,
 				36EA08192953AA06001CBEA1 /* Assets.xcassets */,
 				36EA081B2953AA06001CBEA1 /* Preview Content */,
 				36EA08232953AAFD001CBEA1 /* Main.xcdatamodeld */,
-				36EA087C295E257D001CBEA1 /* DataController.swift */,
-				36EA0880295F63E5001CBEA1 /* HomeView.swift */,
-				36EA0882295F6476001CBEA1 /* ProjectsView.swift */,
 				362020EA29620E0B00F13F5B /* Extensions */,
-				36EA08AD2960D698001CBEA1 /* EditItemView.swift */,
-				362020E62962052200F13F5B /* ItemRowView.swift */,
-				362020EB29646CA800F13F5B /* ProjectHeaderView.swift */,
 				362020ED2964706300F13F5B /* Colors.xcassets */,
-				362020EF2964719200F13F5B /* EditProjectView.swift */,
-				3620211C296762BD00F13F5B /* SelectSomethingView.swift */,
-				3684ED8D297B2A19009559BD /* Awards.json */,
-				362021222968C2C800F13F5B /* Award.swift */,
-				362021242968C34800F13F5B /* AwardsView.swift */,
-				3684ED85297B26CB009559BD /* Localizable.strings */,
-				3684ED89297B28F0009559BD /* Localizable.stringsdict */,
-				3684ED8F297F4586009559BD /* ItemListView.swift */,
-				3684ED912981CF09009559BD /* ProjectSummaryView.swift */,
+				36DDA94B29902D0A0084E9FA /* Localization */,
 			);
 			path = UltimateSwift;
 			sourceTree = "<group>";
