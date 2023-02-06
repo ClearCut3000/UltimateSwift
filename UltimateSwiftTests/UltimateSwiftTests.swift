@@ -11,10 +11,10 @@ import CoreData
 
 class BaseTestCase: XCTestCase {
   var dataController: DataController!
-  var manajeedObjectContext: NSManagedObjectContext!
+  var managedObjectContext: NSManagedObjectContext!
 
   override func setUpWithError() throws {
     dataController = DataController(inMemory: true)
-    manajeedObjectContext = dataController.container.viewContext
+    managedObjectContext = dataController.container.viewContext
   }
 }
