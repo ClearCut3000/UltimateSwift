@@ -26,6 +26,7 @@
 		36DDA9572991772B0084E9FA /* UltimateSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA9562991772B0084E9FA /* UltimateSwiftTests.swift */; };
 		36DDA95E29917F230084E9FA /* AssetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA95D29917F230084E9FA /* AssetTests.swift */; };
 		36DDA96029918C830084E9FA /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA95F29918C830084E9FA /* ProjectTests.swift */; };
+		36DDA9622992DA470084E9FA /* AwardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA9612992DA470084E9FA /* AwardTests.swift */; };
 		36EA08162953AA03001CBEA1 /* UltimateSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */; };
 		36EA08182953AA03001CBEA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08172953AA03001CBEA1 /* ContentView.swift */; };
 		36EA081A2953AA06001CBEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EA08192953AA06001CBEA1 /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 		36DDA9562991772B0084E9FA /* UltimateSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftTests.swift; sourceTree = "<group>"; };
 		36DDA95D29917F230084E9FA /* AssetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTests.swift; sourceTree = "<group>"; };
 		36DDA95F29918C830084E9FA /* ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
+		36DDA9612992DA470084E9FA /* AwardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardTests.swift; sourceTree = "<group>"; };
 		36EA08122953AA03001CBEA1 /* UltimateSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimateSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftApp.swift; sourceTree = "<group>"; };
 		36EA08172953AA03001CBEA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				36DDA9562991772B0084E9FA /* UltimateSwiftTests.swift */,
 				36DDA95D29917F230084E9FA /* AssetTests.swift */,
 				36DDA95F29918C830084E9FA /* ProjectTests.swift */,
+				36DDA9612992DA470084E9FA /* AwardTests.swift */,
 			);
 			path = UltimateSwiftTests;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36DDA95E29917F230084E9FA /* AssetTests.swift in Sources */,
+				36DDA9622992DA470084E9FA /* AwardTests.swift in Sources */,
 				36DDA9572991772B0084E9FA /* UltimateSwiftTests.swift in Sources */,
 				36DDA96029918C830084E9FA /* ProjectTests.swift in Sources */,
 			);
