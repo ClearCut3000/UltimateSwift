@@ -38,6 +38,4 @@ class ProjectTests: BaseTestCase {
     XCTAssertEqual(dataController.count(for: Project.fetchRequest()), 4)
     XCTAssertEqual(dataController.count(for: Item.fetchRequest()), 40)
   }
-
-  
 }
