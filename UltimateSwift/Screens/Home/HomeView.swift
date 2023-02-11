@@ -31,7 +31,7 @@ struct HomeView: View {
     let opedPredicate = NSPredicate(format: "project.closed = false")
     let compoundPredicate = NSCompoundPredicate(type: .and,
                                                 subpredicates: [completedPredicate, opedPredicate])
-    request.predicate = completedPredicate
+    request.predicate = compoundPredicate
     request.sortDescriptors = [NSSortDescriptor(keyPath: \Item.priority,
                                                 ascending: false)]
     request.fetchLimit = 10

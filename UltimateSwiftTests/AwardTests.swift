@@ -10,23 +10,23 @@ import CoreData
 @testable import UltimateSwift
 
 final class AwardTests: BaseTestCase {
-  
+
   let awards = Award.allAwards
-  
+
   // do all tests have the same ID as their name?
   func testAwardIDMatchesName() {
     for award in awards {
       XCTAssertEqual(award.id, award.name, "Award ID should always match its name.")
     }
   }
-  
+
   // need to make sure that when a new user comes into the app they have earned no awards
   func testNewUserHasNoAwards() {
     for award in awards {
       XCTAssertFalse(dataController.hasEarned(award: award), "New users should have no earned awards")
     }
   }
-  
+
   // validate complex awards
   func testItemAwards() throws {
     let values = [1, 10, 20, 50, 100, 250, 500, 1000]
