@@ -31,6 +31,7 @@
 		36DDA96829979E1A0084E9FA /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA96729979E1A0084E9FA /* ExtensionTests.swift */; };
 		36DDA96B2997B8BC0084E9FA /* DecodableDictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 36DDA96A2997B8BC0084E9FA /* DecodableDictionary.json */; };
 		36DDA96D2997B9390084E9FA /* DecodableString.json in Resources */ = {isa = PBXBuildFile; fileRef = 36DDA96C2997B9390084E9FA /* DecodableString.json */; };
+		36DDA96F299833530084E9FA /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA96E299833520084E9FA /* PerformanceTests.swift */; };
 		36EA08162953AA03001CBEA1 /* UltimateSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */; };
 		36EA08182953AA03001CBEA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08172953AA03001CBEA1 /* ContentView.swift */; };
 		36EA081A2953AA06001CBEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EA08192953AA06001CBEA1 /* Assets.xcassets */; };
@@ -83,6 +84,7 @@
 		36DDA96729979E1A0084E9FA /* ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
 		36DDA96A2997B8BC0084E9FA /* DecodableDictionary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DecodableDictionary.json; sourceTree = "<group>"; };
 		36DDA96C2997B9390084E9FA /* DecodableString.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DecodableString.json; sourceTree = "<group>"; };
+		36DDA96E299833520084E9FA /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		36EA08122953AA03001CBEA1 /* UltimateSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimateSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftApp.swift; sourceTree = "<group>"; };
 		36EA08172953AA03001CBEA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				36DDA9612992DA470084E9FA /* AwardTests.swift */,
 				36DDA965299585210084E9FA /* DevelopmentTests.swift */,
 				36DDA96729979E1A0084E9FA /* ExtensionTests.swift */,
+				36DDA96E299833520084E9FA /* PerformanceTests.swift */,
 			);
 			path = UltimateSwiftTests;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36DDA96F299833530084E9FA /* PerformanceTests.swift in Sources */,
 				36DDA95E29917F230084E9FA /* AssetTests.swift in Sources */,
 				36DDA9622992DA470084E9FA /* AwardTests.swift in Sources */,
 				36DDA9572991772B0084E9FA /* UltimateSwiftTests.swift in Sources */,
