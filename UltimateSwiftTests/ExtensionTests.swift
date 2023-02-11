@@ -5,6 +5,7 @@
 //  Created by Николай Никитин on 11.02.2023.
 //
 
+import SwiftUI
 import XCTest
 @testable import UltimateSwift
 
@@ -51,5 +52,24 @@ final class ExtensionTests: XCTestCase {
     let data = bundle.decode([String: Int].self, from: "DecodableDictionary.json")
     XCTAssertEqual(data.count, 3, "There should be three items decoded from DecodableDictionary.json.")
     XCTAssertEqual(data["One"], 1, "The dictionary should contain Int to String mappings.")
+  }
+
+  // test onChange extension
+  func testBindingOnChange() {
+    // Given
+    var onChangeFunctionRun = false
+    func exampleFunctionCall() {
+      onChangeFunctionRun = true
+    }
+    var storedValue = ""
+    let binding = Binding(
+      get: { storedValue },
+      set: { storedValue = $0 }
+    )
+    let changedBinding = binding.onChange(exampleFunctionCall)
+    // When
+    changedBinding.wrappedValue = "Test"
+    // Then
+    XCTAssertTrue(onChangeFunctionRun, "The onChange() function was not run.")
   }
 }
