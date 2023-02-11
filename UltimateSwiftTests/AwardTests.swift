@@ -41,7 +41,7 @@ final class AwardTests: BaseTestCase {
       dataController.deleteAll()
     }
   }
-  
+
   // ensures the completed awards also work
   func testCompletedAwards() throws {
     let values = [1, 10, 20, 50, 100, 250, 500, 1000]
