@@ -31,4 +31,25 @@ final class ExtensionTests: XCTestCase {
     }
     XCTAssertEqual(sortedItems, [example3, example2, example1], "Reverse sorting should yield c, b, a.")
   }
+
+  // bundle loading/decoding tests
+  func testBundleDecodingAwards() {
+    let awards = Bundle.main.decode([Award].self, from: "Awards.json")
+    XCTAssertFalse(awards.isEmpty, "Awards.json should decode to a non-empty array.")
+  }
+
+  func testDecodingString() {
+    let bundle = Bundle(for: ExtensionTests.self)
+    let data = bundle.decode(String.self, from: "DecodableString.json")
+    XCTAssertEqual(data,
+                   "That tests our extension is able to load the simplest kind of JSON – just one value.",
+                   "The string must match the content of DecodableString.json.")
+  }
+
+  func testDecodingDictionary() {
+    let bundle = Bundle(for: ExtensionTests.self)
+    let data = bundle.decode([String: Int].self, from: "DecodableDictionary.json")
+    XCTAssertEqual(data.count, 3, "There should be three items decoded from DecodableDictionary.json.")
+    XCTAssertEqual(data["One"], 1, "The dictionary should contain Int to String mappings.")
+  }
 }
