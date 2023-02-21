@@ -10,26 +10,38 @@ import CoreData
 import SwiftUI
 
 extension ProjectsView {
-  class ViewModel: ObservableObject {
+  class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
 
     // MARK: - Properties
     let dataController: DataController
-    let projects: FetchRequest<Project>
     var sortOrder = Item.SortOrder.optimazed
     var showClosedProjects: Bool
+    private let projectsController: NSFetchedResultsController<Project>
+    @Published var projects = [Project]()
 
     // MARK: - Init
     init(dataController: DataController, showClosedProjects: Bool) {
       self.dataController = dataController
       self.showClosedProjects = showClosedProjects
-
-      projects = FetchRequest<Project>(entity: Project.entity(),
-                                       sortDescriptors: [NSSortDescriptor(keyPath: \Project.creationDate,
-                                                                          ascending: false)
-                                       ],
-                                       predicate: NSPredicate(format: "closed = %d",
-                                                              showClosedProjects)
-      )
+      /// create an NSFetchRequest that loads data
+      let request: NSFetchRequest<Project> = Project.fetchRequest()
+      request.sortDescriptors = [NSSortDescriptor(keyPath: \Project.creationDate,
+                                                  ascending: false)]
+      request.predicate = NSPredicate(format: "closed= = %d", showClosedProjects)
+      /// wrap that NSFetchRequest in an NSFetchedResultsController
+      projectsController = NSFetchedResultsController(fetchRequest: request,
+                                                      managedObjectContext: dataController.container.viewContext,
+                                                      sectionNameKeyPath: nil,
+                                                      cacheName: nil)
+      /// set the view model class as the delegate of the fetched results controller so that it can tell when the data has changed somehow
+      super.init()
+      projectsController.delegate = self
+      do {
+        try projectsController.performFetch()
+        projects = projectsController.fetchedObjects ?? []
+      } catch {
+        print("Failed to fetch projects!")
+      }
     }
 
     // MARK: - Methods
@@ -54,6 +66,12 @@ extension ProjectsView {
         dataController.delete(item)
       }
       dataController.save()
+    }
+
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+      if let newProjects = controller.fetchedObjects as? [Project] {
+        projects = newProjects
+      }
     }
   }
 }
