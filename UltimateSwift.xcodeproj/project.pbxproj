@@ -19,6 +19,7 @@
 		362021252968C34800F13F5B /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362021242968C34800F13F5B /* AwardsView.swift */; };
 		362DD8B12977380E0042ABF7 /* Color-Additions+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362DD8B02977380E0042ABF7 /* Color-Additions+Extension.swift */; };
 		365DE83829A408C500ECE3AA /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365DE83729A408C500ECE3AA /* ProjectsViewModel.swift */; };
+		366C731A29BA67F5009AF437 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C731929BA67F5009AF437 /* HomeViewModel.swift */; };
 		3684ED83297B26CB009559BD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3684ED85297B26CB009559BD /* Localizable.strings */; };
 		3684ED87297B28F0009559BD /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 3684ED89297B28F0009559BD /* Localizable.stringsdict */; };
 		3684ED8B297B2A19009559BD /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 3684ED8D297B2A19009559BD /* Awards.json */; };
@@ -78,6 +79,7 @@
 		362021242968C34800F13F5B /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
 		362DD8B02977380E0042ABF7 /* Color-Additions+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Additions+Extension.swift"; sourceTree = "<group>"; };
 		365DE83729A408C500ECE3AA /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
+		366C731929BA67F5009AF437 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		3684ED84297B26CB009559BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3684ED86297B26DB009559BD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3684ED88297B28F0009559BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				36EA0880295F63E5001CBEA1 /* HomeView.swift */,
 				3684ED8F297F4586009559BD /* ItemListView.swift */,
 				3684ED912981CF09009559BD /* ProjectSummaryView.swift */,
+				366C731929BA67F5009AF437 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				362020EC29646CA800F13F5B /* ProjectHeaderView.swift in Sources */,
 				362021252968C34800F13F5B /* AwardsView.swift in Sources */,
 				3620211B29661C0C00F13F5B /* Sequence + Extension.swift in Sources */,
+				366C731A29BA67F5009AF437 /* HomeViewModel.swift in Sources */,
 				3620211F2968BE7800F13F5B /* Bundle+Extension.swift in Sources */,
 				36EA08AC2960D1FF001CBEA1 /* Project-CoreDataHelper+Extension.swift in Sources */,
 				36EA0883295F6476001CBEA1 /* ProjectsView.swift in Sources */,
