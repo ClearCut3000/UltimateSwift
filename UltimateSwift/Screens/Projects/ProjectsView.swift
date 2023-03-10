@@ -12,7 +12,7 @@ struct ProjectsView: View {
   // MARK: - View Properties
   @State private var showingSortOrder = false
   @StateObject var viewModel: ViewModel
-  
+
   static let openTag: String? = "Open"
   static let closedTag: String? = "Closed"
 

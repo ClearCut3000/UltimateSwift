@@ -11,7 +11,7 @@ struct ItemListView: View {
 
   // MARK: - View Properties
   let title: LocalizedStringKey
-  let items: FetchedResults<Item>.SubSequence
+  let items: ArraySlice<Item>
 
   // MARK: - View Body
   var body: some View {

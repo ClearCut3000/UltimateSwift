@@ -9,13 +9,25 @@ import CoreData
 import Foundation
 
 extension HomeView {
-  class HomeModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
+  class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
+    // MARK: - Properties
     private let projectsController: NSFetchedResultsController<Project>
     private let itemsController: NSFetchedResultsController<Item>
+
+    var dataController: DataController
+
+    var upNext: ArraySlice<Item> {
+      items.prefix(3)
+    }
+
+    var moreToExplore: ArraySlice<Item> {
+      items.dropFirst(3)
+    }
 
     @Published var projects = [Project]()
     @Published var items = [Item]()
 
+    // MARK: - Init
     init(dataController: DataController) {
       self.dataController = dataController
 
@@ -54,6 +66,20 @@ extension HomeView {
       } catch {
         print("Failed to fetch initial data!")
       }
+    }
+
+    // MARK: - Methods
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+      if let newItems = controller.fetchedObjects as? [Item] {
+        items = newItems
+      } else if let newProjects = controller.fetchedObjects as? [Project] {
+        projects = newProjects
+      }
+    }
+
+    func addSampleData() {
+      dataController.deleteAll()
+      try? dataController.createSampleData()
     }
   }
 }
