@@ -37,7 +37,7 @@ extension ItemRowView {
         return nil
       }
     }
-    
+
     var label: String {
       if item.completed {
         return "\(item.itemTitle), completed."

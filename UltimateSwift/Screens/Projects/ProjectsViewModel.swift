@@ -33,7 +33,8 @@ extension ProjectsView {
                                                       managedObjectContext: dataController.container.viewContext,
                                                       sectionNameKeyPath: nil,
                                                       cacheName: nil)
-    /// set the view model class as the delegate of the fetched results controller so that it can tell when the data has changed somehow
+      /// set the view model class as the delegate of the fetched results controller
+      /// so that it can tell when the data has changed somehow
       super.init()
       projectsController.delegate = self
       do {
