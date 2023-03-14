@@ -119,6 +119,19 @@ class DataController: ObservableObject {
     }
   }
 
+  /// Method for converting unique identifier from Spotlight to Item for  figuring out which object was selected
+  /// - Parameter uniqueIdentifier: String Identifier from Spotlight
+  /// - Returns: Selected Item
+  func item(with uniqueIdentifier: String) -> Item? {
+      guard let url = URL(string: uniqueIdentifier) else {
+          return nil
+      }
+      guard let id = container.persistentStoreCoordinator.managedObjectID(forURIRepresentation: url) else {
+          return nil
+      }
+      return try? container.viewContext.existingObject(with: id) as? Item
+  }
+
   func delete(_ object: NSManagedObject) {
     container.viewContext.delete(object)
   }

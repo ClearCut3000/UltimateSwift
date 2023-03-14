@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreSpotlight
 
 struct ContentView: View {
 
@@ -41,6 +42,12 @@ struct ContentView: View {
           Text("Awards")
         }
     }
+    .onContinueUserActivity(CSSearchableItemActionType, perform: moveToHome)
+  }
+
+  // MARK: - View Methods
+  func moveToHome(_ input: Any) {
+    selectedView = HomeView.tag
   }
 }
 
