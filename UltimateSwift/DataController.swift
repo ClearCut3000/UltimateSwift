@@ -29,13 +29,13 @@ class DataController: ObservableObject {
 
   /// Load the data model precisely once and share it everywhere we create a DataController
   static let model: NSManagedObjectModel = {
-      guard let url = Bundle.main.url(forResource: "Main", withExtension: "momd") else {
-          fatalError("Failed to locate model file.")
-      }
-      guard let managedObjectModel = NSManagedObjectModel(contentsOf: url) else {
-          fatalError("Failed to load model file.")
-      }
-      return managedObjectModel
+    guard let url = Bundle.main.url(forResource: "Main", withExtension: "momd") else {
+      fatalError("Failed to locate model file.")
+    }
+    guard let managedObjectModel = NSManagedObjectModel(contentsOf: url) else {
+      fatalError("Failed to load model file.")
+    }
+    return managedObjectModel
   }()
 
   // MARK: - DataController Init
@@ -55,12 +55,12 @@ class DataController: ObservableObject {
       if let error {
         fatalError("Fatal error loading store: \(error.localizedDescription)")
       }
-      #if DEBUG
+#if DEBUG
       if CommandLine.arguments.contains("enable-testing") {
         self.deleteAll()
         UIView.setAnimationsEnabled(false)
       }
-      #endif
+#endif
     }
   }
 
@@ -93,22 +93,22 @@ class DataController: ObservableObject {
   /// then call save() on the data controller so it updates Core Data as well
   /// - Parameter item: Item object
   func update(_ item: Item) {
-      let itemID = item.objectID.uriRepresentation().absoluteString
-      let projectID = item.project?.objectID.uriRepresentation().absoluteString
+    let itemID = item.objectID.uriRepresentation().absoluteString
+    let projectID = item.project?.objectID.uriRepresentation().absoluteString
 
-      let attributeSet = CSSearchableItemAttributeSet(contentType: .text)
-      attributeSet.title = item.title
-      attributeSet.contentDescription = item.detail
+    let attributeSet = CSSearchableItemAttributeSet(contentType: .text)
+    attributeSet.title = item.title
+    attributeSet.contentDescription = item.detail
 
-      let searchableItem = CSSearchableItem(
-          uniqueIdentifier: itemID,
-          domainIdentifier: projectID,
-          attributeSet: attributeSet
-      )
+    let searchableItem = CSSearchableItem(
+      uniqueIdentifier: itemID,
+      domainIdentifier: projectID,
+      attributeSet: attributeSet
+    )
 
-      CSSearchableIndex.default().indexSearchableItems([searchableItem])
+    CSSearchableIndex.default().indexSearchableItems([searchableItem])
 
-      save()
+    save()
   }
 
   /// Saves our Core Data context iff there are changes. This silently ignores
@@ -123,18 +123,25 @@ class DataController: ObservableObject {
   /// - Parameter uniqueIdentifier: String Identifier from Spotlight
   /// - Returns: Selected Item
   func item(with uniqueIdentifier: String) -> Item? {
-      guard let url = URL(string: uniqueIdentifier) else {
-          return nil
-      }
-      guard let id = container.persistentStoreCoordinator.managedObjectID(forURIRepresentation: url) else {
-          return nil
-      }
-      return try? container.viewContext.existingObject(with: id) as? Item
+    guard let url = URL(string: uniqueIdentifier) else {
+      return nil
+    }
+    guard let id = container.persistentStoreCoordinator.managedObjectID(forURIRepresentation: url) else {
+      return nil
+    }
+    return try? container.viewContext.existingObject(with: id) as? Item
   }
 
   func delete(_ object: NSManagedObject) {
+    let id = object.objectID.uriRepresentation().absoluteString
+    if object is Item {
+      CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [id])
+    } else {
+      CSSearchableIndex.default().deleteSearchableItems(withDomainIdentifiers: [id])
+    }
     container.viewContext.delete(object)
   }
+
 
   func deleteAll() {
     let itemsFetchRequest: NSFetchRequest<NSFetchRequestResult> = Item.fetchRequest()
