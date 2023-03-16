@@ -21,7 +21,7 @@ struct EditProjectView: View {
   @State private var engine = try? CHHapticEngine()
   @State private var remindMe: Bool
   @State private var reminderTime: Date
-
+  @State private var showingNotificationsError = false
   let colorColumns = [
     GridItem(.adaptive(minimum: 44))
   ]
@@ -49,18 +49,22 @@ struct EditProjectView: View {
         TextField("Project Name", text: $title.onChange(update))
         TextField("Description of thise project", text: $detail.onChange(update))
       }
-
       Section(header: Text("Custom Project Color")) {
         LazyVGrid(columns: colorColumns) {
           ForEach(Project.colors, id: \.self, content: colorButton)
         }
         .padding(.vertical)
       }
-
       Section(header: Text("Project reminders")) {
         Toggle("Show reminders", isOn: $remindMe.animation().onChange {
           update()
         })
+        .alert(isPresented: $showingNotificationsError) {
+          Alert(title: Text("Oops!"),
+                message: Text("There was a problem. Please check you have notifications enabled."),
+                primaryButton: .default(Text("Check Settings"), action: showAppSettings),
+                secondaryButton: .cancel())
+        }
         if remindMe {
           DatePicker("Reminder Time",
                      selection: $reminderTime.onChange(update),
@@ -95,8 +99,16 @@ struct EditProjectView: View {
     project.color = color
     if remindMe {
       project.reminderTime = reminderTime
+      dataController.addReminders(for: project) { success in
+        if success == false {
+          project.reminderTime = nil
+          remindMe = false
+          showingNotificationsError = true
+        }
+      }
     } else {
       project.reminderTime = nil
+      dataController.removeReminders(for: project)
     }
   }
 
@@ -127,7 +139,6 @@ struct EditProjectView: View {
 
   func toggleClosed() {
     project.closed.toggle()
-
     if project.closed {
       do {
         try? engine?.start()
@@ -152,6 +163,13 @@ struct EditProjectView: View {
       } catch {
 
       }
+    }
+  }
+
+  func showAppSettings() {
+    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+    if UIApplication.shared.canOpenURL(settingsUrl) {
+      UIApplication.shared.open(settingsUrl)
     }
   }
 }
