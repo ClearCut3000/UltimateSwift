@@ -21,6 +21,7 @@ struct EditProjectView: View {
   @State private var engine = try? CHHapticEngine()
   @State private var remindMe: Bool
   @State private var reminderTime: Date
+
   let colorColumns = [
     GridItem(.adaptive(minimum: 44))
   ]

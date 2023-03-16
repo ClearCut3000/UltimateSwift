@@ -8,6 +8,7 @@
 import CoreData
 import CoreSpotlight
 import SwiftUI
+import UserNotifications
 
 /// An environment singleton responsible for managing our Core Data stack, including handling saving,
 /// counting fetch requests, tracking awards, and dealing with sample data.
@@ -70,7 +71,6 @@ class DataController: ObservableObject {
   /// - Throws: An NSError sent from calling save() on the NSManagedObjectContext.
   func createSampleData() throws {
     let viewContext = container.viewContext
-
     for projectCounter in 1...5 {
       let project = Project(context: viewContext)
       project.title = "Project \(projectCounter)"
@@ -95,19 +95,15 @@ class DataController: ObservableObject {
   func update(_ item: Item) {
     let itemID = item.objectID.uriRepresentation().absoluteString
     let projectID = item.project?.objectID.uriRepresentation().absoluteString
-
     let attributeSet = CSSearchableItemAttributeSet(contentType: .text)
     attributeSet.title = item.title
     attributeSet.contentDescription = item.detail
-
     let searchableItem = CSSearchableItem(
       uniqueIdentifier: itemID,
       domainIdentifier: projectID,
       attributeSet: attributeSet
     )
-
     CSSearchableIndex.default().indexSearchableItems([searchableItem])
-
     save()
   }
 
@@ -146,7 +142,6 @@ class DataController: ObservableObject {
     let itemsFetchRequest: NSFetchRequest<NSFetchRequestResult> = Item.fetchRequest()
     let itemsBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: itemsFetchRequest)
     _ = try? container.viewContext.execute(itemsBatchDeleteRequest)
-
     let projectsFetchRequest: NSFetchRequest<NSFetchRequestResult> = Project.fetchRequest()
     let projectsBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: projectsFetchRequest)
     _ = try? container.viewContext.execute(projectsBatchDeleteRequest)
@@ -173,6 +168,66 @@ class DataController: ObservableObject {
       // an unknown award criterion; this should never be allowed
       //      fatalError("Unknown award criterion: \(award.criterion)")
       return false
+    }
+  }
+
+  // MARK: - Notifications DataController Methods
+  func addReminders(for project: Project, completion: @escaping (Bool) -> Void) {
+    let center = UNUserNotificationCenter.current()
+    center.getNotificationSettings { settings in
+      switch settings.authorizationStatus {
+      case .notDetermined:
+        self.requestNotifications { success in
+            if success {
+                self.placeReminders(for: project, completion: completion)
+            } else {
+                DispatchQueue.main.async {
+                    completion(false)
+                }
+            }
+        }
+      case .authorized:
+        self.placeReminders(for: project, completion: completion)
+      default:
+        DispatchQueue.main.async {
+          completion(false)
+        }
+      }
+    }
+  }
+
+  func removeReminders(for project: Project) {
+    let center = UNUserNotificationCenter.current()
+    let id = project.objectID.uriRepresentation().absoluteString
+    center.removePendingNotificationRequests(withIdentifiers: [id])
+  }
+
+  private func requestNotifications(completion: @escaping (Bool) -> Void) {
+    let center = UNUserNotificationCenter.current()
+    center.requestAuthorization(options: [.alert, .sound]) { granted, _ in
+      completion(granted)
+    }
+  }
+
+  private func placeReminders(for project: Project, completion: @escaping (Bool) -> Void) {
+    let content = UNMutableNotificationContent()
+    content.sound = .default
+    content.title = project.projectTitle
+    if let projectDetail = project.detail {
+        content.subtitle = projectDetail
+    }
+    let components = Calendar.current.dateComponents([.hour, .minute],
+                                                     from: project.reminderTime ?? Date())
+    let trigger = UNCalendarNotificationTrigger(dateMatching: components,
+                                                repeats: true)
+    let id = project.objectID.uriRepresentation().absoluteString
+    let request = UNNotificationRequest(identifier: id,
+                                        content: content,
+                                        trigger: trigger)
+    UNUserNotificationCenter.current().add(request) { error in
+      DispatchQueue.main.async {
+        error == nil ? completion(true) : completion(false)
+      }
     }
   }
 }
