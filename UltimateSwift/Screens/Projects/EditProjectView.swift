@@ -19,6 +19,8 @@ struct EditProjectView: View {
   @State private var color: String
   @State private var showingDeleteConform = false
   @State private var engine = try? CHHapticEngine()
+  @State private var remindMe: Bool
+  @State private var reminderTime: Date
   let colorColumns = [
     GridItem(.adaptive(minimum: 44))
   ]
@@ -29,6 +31,14 @@ struct EditProjectView: View {
     _title = State(wrappedValue: project.projectTitle)
     _detail = State(wrappedValue: project.projectDetail)
     _color = State(wrappedValue: project.projectColor)
+
+    if let projectReminderTime = project.reminderTime {
+      _reminderTime = State(wrappedValue: projectReminderTime)
+      _remindMe = State(wrappedValue: true)
+    } else {
+      _reminderTime = State(wrappedValue: Date())
+      _remindMe = State(wrappedValue: false)
+    }
   }
 
   // MARK: - View Body
@@ -44,6 +54,17 @@ struct EditProjectView: View {
           ForEach(Project.colors, id: \.self, content: colorButton)
         }
         .padding(.vertical)
+      }
+
+      Section(header: Text("Project reminders")) {
+        Toggle("Show reminders", isOn: $remindMe.animation().onChange {
+          update()
+        })
+        if remindMe {
+          DatePicker("Reminder Time",
+                     selection: $reminderTime.onChange(update),
+                     displayedComponents: .hourAndMinute)
+        }
       }
       // swiftlint:disable:next line_length
       Section(footer: Text("Closing a project moves it from the Open to Closed tab: deleting it removes the project entirely")) {
@@ -71,6 +92,11 @@ struct EditProjectView: View {
     project.title = title
     project.detail = detail
     project.color = color
+    if remindMe {
+      project.reminderTime = reminderTime
+    } else {
+      project.reminderTime = nil
+    }
   }
 
   func delete() {
@@ -119,7 +145,7 @@ struct EditProjectView: View {
                                    relativeTime: 0.125,
                                    duration: 1)
         let pattern = try CHHapticPattern(events: [event1, event2],
-                                      parameterCurves: [parameter])
+                                          parameterCurves: [parameter])
         let player = try engine?.makePlayer(with: pattern)
         try player?.start(atTime: 0)
       } catch {

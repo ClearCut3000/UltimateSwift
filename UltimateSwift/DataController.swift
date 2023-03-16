@@ -142,7 +142,6 @@ class DataController: ObservableObject {
     container.viewContext.delete(object)
   }
 
-
   func deleteAll() {
     let itemsFetchRequest: NSFetchRequest<NSFetchRequestResult> = Item.fetchRequest()
     let itemsBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: itemsFetchRequest)
