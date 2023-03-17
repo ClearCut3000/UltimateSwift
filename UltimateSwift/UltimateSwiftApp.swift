@@ -12,11 +12,14 @@ struct UltimateSwiftApp: App {
 
   // MARK: - Properties
   @StateObject var dataController: DataController
+  @StateObject var unlockManager: UnlockManager
 
   // MARK: - Init
   init() {
     let dataController = DataController()
+    let unlockManager = UnlockManager(dataController: dataController)
     _dataController = StateObject(wrappedValue: dataController)
+    _unlockManager = StateObject(wrappedValue: unlockManager)
   }
 
   // MARK: - Body
@@ -25,6 +28,7 @@ struct UltimateSwiftApp: App {
       ContentView()
         .environment(\.managedObjectContext, dataController.container.viewContext)
         .environmentObject(dataController)
+        .environmentObject(unlockManager)
         .onReceive(
           // Automatically save when we detect that we are
           // no longer the foreground app. Use this rather than
