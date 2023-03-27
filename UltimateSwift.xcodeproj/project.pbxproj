@@ -18,6 +18,8 @@
 		362021232968C2C800F13F5B /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362021222968C2C800F13F5B /* Award.swift */; };
 		362021252968C34800F13F5B /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362021242968C34800F13F5B /* AwardsView.swift */; };
 		362DD8B12977380E0042ABF7 /* Color-Additions+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362DD8B02977380E0042ABF7 /* Color-Additions+Extension.swift */; };
+		3647C95E29D2207C0055FC02 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647C95D29D2207C0055FC02 /* ProductView.swift */; };
+		3647C96029D2214F0055FC02 /* UnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647C95F29D2214F0055FC02 /* UnlockView.swift */; };
 		365DE83829A408C500ECE3AA /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365DE83729A408C500ECE3AA /* ProjectsViewModel.swift */; };
 		366C731A29BA67F5009AF437 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C731929BA67F5009AF437 /* HomeViewModel.swift */; };
 		366C731C29BD20B7009AF437 /* ItemRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C731B29BD20B7009AF437 /* ItemRowViewModel.swift */; };
@@ -39,6 +41,7 @@
 		36DDA977299BED920084E9FA /* UltimateSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA976299BED920084E9FA /* UltimateSwiftUITests.swift */; };
 		36DDA979299BED920084E9FA /* UltimateSwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA978299BED920084E9FA /* UltimateSwiftUITestsLaunchTests.swift */; };
 		36E76E1F29D21A0500CEE274 /* SKProduct-LocalizedPrice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E76E1E29D21A0400CEE274 /* SKProduct-LocalizedPrice+Extension.swift */; };
+		36E76E2129D21AEE00CEE274 /* PurchaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E76E2029D21AEE00CEE274 /* PurchaseButton.swift */; };
 		36EA08162953AA03001CBEA1 /* UltimateSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */; };
 		36EA08182953AA03001CBEA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08172953AA03001CBEA1 /* ContentView.swift */; };
 		36EA081A2953AA06001CBEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EA08192953AA06001CBEA1 /* Assets.xcassets */; };
@@ -81,6 +84,8 @@
 		362021222968C2C800F13F5B /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
 		362021242968C34800F13F5B /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
 		362DD8B02977380E0042ABF7 /* Color-Additions+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Additions+Extension.swift"; sourceTree = "<group>"; };
+		3647C95D29D2207C0055FC02 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		3647C95F29D2214F0055FC02 /* UnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockView.swift; sourceTree = "<group>"; };
 		365DE83729A408C500ECE3AA /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
 		366C731929BA67F5009AF437 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		366C731B29BD20B7009AF437 /* ItemRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowViewModel.swift; sourceTree = "<group>"; };
@@ -108,6 +113,7 @@
 		36DDA976299BED920084E9FA /* UltimateSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftUITests.swift; sourceTree = "<group>"; };
 		36DDA978299BED920084E9FA /* UltimateSwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		36E76E1E29D21A0400CEE274 /* SKProduct-LocalizedPrice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct-LocalizedPrice+Extension.swift"; sourceTree = "<group>"; };
+		36E76E2029D21AEE00CEE274 /* PurchaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseButton.swift; sourceTree = "<group>"; };
 		36EA08122953AA03001CBEA1 /* UltimateSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimateSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftApp.swift; sourceTree = "<group>"; };
 		36EA08172953AA03001CBEA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -296,6 +302,9 @@
 				362020EA29620E0B00F13F5B /* Extensions */,
 				362020ED2964706300F13F5B /* Colors.xcassets */,
 				36DDA94B29902D0A0084E9FA /* Localization */,
+				36E76E2029D21AEE00CEE274 /* PurchaseButton.swift */,
+				3647C95D29D2207C0055FC02 /* ProductView.swift */,
+				3647C95F29D2214F0055FC02 /* UnlockView.swift */,
 			);
 			path = UltimateSwift;
 			sourceTree = "<group>";
@@ -492,7 +501,9 @@
 			files = (
 				362020E72962052200F13F5B /* ItemRowView.swift in Sources */,
 				3684ED922981CF09009559BD /* ProjectSummaryView.swift in Sources */,
+				36E76E2129D21AEE00CEE274 /* PurchaseButton.swift in Sources */,
 				362020EC29646CA800F13F5B /* ProjectHeaderView.swift in Sources */,
+				3647C95E29D2207C0055FC02 /* ProductView.swift in Sources */,
 				362021252968C34800F13F5B /* AwardsView.swift in Sources */,
 				3620211B29661C0C00F13F5B /* Sequence + Extension.swift in Sources */,
 				366C731A29BA67F5009AF437 /* HomeViewModel.swift in Sources */,
@@ -504,6 +515,7 @@
 				362021232968C2C800F13F5B /* Award.swift in Sources */,
 				3620211D296762BD00F13F5B /* SelectSomethingView.swift in Sources */,
 				36E76E1F29D21A0500CEE274 /* SKProduct-LocalizedPrice+Extension.swift in Sources */,
+				3647C96029D2214F0055FC02 /* UnlockView.swift in Sources */,
 				36EA08252953AAFD001CBEA1 /* Main.xcdatamodeld in Sources */,
 				36EA087D295E257D001CBEA1 /* DataController.swift in Sources */,
 				362020E929620C1A00F13F5B /* Binding-onChange+Extension.swift in Sources */,
