@@ -38,6 +38,7 @@
 		36DDA96F299833530084E9FA /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA96E299833520084E9FA /* PerformanceTests.swift */; };
 		36DDA977299BED920084E9FA /* UltimateSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA976299BED920084E9FA /* UltimateSwiftUITests.swift */; };
 		36DDA979299BED920084E9FA /* UltimateSwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA978299BED920084E9FA /* UltimateSwiftUITestsLaunchTests.swift */; };
+		36E76E1F29D21A0500CEE274 /* SKProduct-LocalizedPrice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E76E1E29D21A0400CEE274 /* SKProduct-LocalizedPrice+Extension.swift */; };
 		36EA08162953AA03001CBEA1 /* UltimateSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */; };
 		36EA08182953AA03001CBEA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08172953AA03001CBEA1 /* ContentView.swift */; };
 		36EA081A2953AA06001CBEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EA08192953AA06001CBEA1 /* Assets.xcassets */; };
@@ -106,6 +107,7 @@
 		36DDA974299BED920084E9FA /* UltimateSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UltimateSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36DDA976299BED920084E9FA /* UltimateSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftUITests.swift; sourceTree = "<group>"; };
 		36DDA978299BED920084E9FA /* UltimateSwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		36E76E1E29D21A0400CEE274 /* SKProduct-LocalizedPrice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct-LocalizedPrice+Extension.swift"; sourceTree = "<group>"; };
 		36EA08122953AA03001CBEA1 /* UltimateSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimateSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftApp.swift; sourceTree = "<group>"; };
 		36EA08172953AA03001CBEA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				3620211A29661C0C00F13F5B /* Sequence + Extension.swift */,
 				3620211E2968BE7800F13F5B /* Bundle+Extension.swift */,
 				362DD8B02977380E0042ABF7 /* Color-Additions+Extension.swift */,
+				36E76E1E29D21A0400CEE274 /* SKProduct-LocalizedPrice+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				362020F02964719200F13F5B /* EditProjectView.swift in Sources */,
 				362021232968C2C800F13F5B /* Award.swift in Sources */,
 				3620211D296762BD00F13F5B /* SelectSomethingView.swift in Sources */,
+				36E76E1F29D21A0500CEE274 /* SKProduct-LocalizedPrice+Extension.swift in Sources */,
 				36EA08252953AAFD001CBEA1 /* Main.xcdatamodeld in Sources */,
 				36EA087D295E257D001CBEA1 /* DataController.swift in Sources */,
 				362020E929620C1A00F13F5B /* Binding-onChange+Extension.swift in Sources */,
