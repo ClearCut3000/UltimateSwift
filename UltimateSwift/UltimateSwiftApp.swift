@@ -36,6 +36,7 @@ struct UltimateSwiftApp: App {
           // phase won't detect our app losing focus.
           NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification),
           perform: save(_:))
+        .onAppear(perform: dataController.appLaunched)
     }
   }
 
