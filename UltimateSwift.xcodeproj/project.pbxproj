@@ -168,6 +168,17 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		3647C96129D381C00055FC02 /* Unlock */ = {
+			isa = PBXGroup;
+			children = (
+				366C732429C4E538009AF437 /* UnlockManager.swift */,
+				3647C95F29D2214F0055FC02 /* UnlockView.swift */,
+				36E76E2029D21AEE00CEE274 /* PurchaseButton.swift */,
+				3647C95D29D2207C0055FC02 /* ProductView.swift */,
+			);
+			path = Unlock;
+			sourceTree = "<group>";
+		};
 		36DDA94829902C550084E9FA /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +200,7 @@
 		36DDA94C29902F430084E9FA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3647C96129D381C00055FC02 /* Unlock */,
 				36DDA94E29902F630084E9FA /* Projects */,
 				36DDA94D29902F5B0084E9FA /* Home */,
 				36DDA94F29902F690084E9FA /* Awards */,
@@ -294,7 +306,6 @@
 				36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */,
 				36EA08172953AA03001CBEA1 /* ContentView.swift */,
 				36EA087C295E257D001CBEA1 /* DataController.swift */,
-				366C732429C4E538009AF437 /* UnlockManager.swift */,
 				366C732629C4E75C009AF437 /* StoreKitConfig.storekit */,
 				36EA08192953AA06001CBEA1 /* Assets.xcassets */,
 				36EA081B2953AA06001CBEA1 /* Preview Content */,
@@ -302,9 +313,6 @@
 				362020EA29620E0B00F13F5B /* Extensions */,
 				362020ED2964706300F13F5B /* Colors.xcassets */,
 				36DDA94B29902D0A0084E9FA /* Localization */,
-				36E76E2029D21AEE00CEE274 /* PurchaseButton.swift */,
-				3647C95D29D2207C0055FC02 /* ProductView.swift */,
-				3647C95F29D2214F0055FC02 /* UnlockView.swift */,
 			);
 			path = UltimateSwift;
 			sourceTree = "<group>";
