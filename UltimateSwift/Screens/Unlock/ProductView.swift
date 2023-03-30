@@ -38,4 +38,3 @@ struct ProductView: View {
     unlockManager.buy(product: product)
   }
 }
-

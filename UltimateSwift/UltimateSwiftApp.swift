@@ -11,6 +11,7 @@ import SwiftUI
 struct UltimateSwiftApp: App {
 
   // MARK: - Properties
+  @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
   @StateObject var dataController: DataController
   @StateObject var unlockManager: UnlockManager
 
