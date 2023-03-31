@@ -196,6 +196,22 @@ class DataController: ObservableObject {
     }
   }
 
+  /// Method return a Boolean to say whether the new project was added successfully or not when using quick action
+  @discardableResult func addProject() -> Bool {
+      let canCreate = fullVersionUnlocked || count(for: Project.fetchRequest()) < 3
+
+      if canCreate {
+          let project = Project(context: container.viewContext)
+          project.closed = false
+          project.creationDate = Date()
+          save()
+          return true
+      } else {
+          return false
+      }
+  }
+
+
   // MARK: - Notifications DataController Methods
   func addReminders(for project: Project, completion: @escaping (Bool) -> Void) {
     let center = UNUserNotificationCenter.current()

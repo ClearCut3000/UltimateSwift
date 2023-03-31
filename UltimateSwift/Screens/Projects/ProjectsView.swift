@@ -106,6 +106,12 @@ struct ProjectsView: View {
     .sheet(isPresented: $viewModel.showingUnlockView) {
       UnlockView()
     }
+    .onOpenURL(perform: openURL)
+  }
+
+  // MARK: - View Methods
+  func openURL(_ url: URL) {
+    viewModel.addProject()
   }
 }
 
