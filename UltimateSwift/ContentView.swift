@@ -13,6 +13,7 @@ struct ContentView: View {
   // MARK: - View Properties
   @SceneStorage("selectedView") var selectedView: String?
   @EnvironmentObject var dataController: DataController
+  private let neewProjectActivity = "com.example.UltimateSwift.newProject"
 
   // MARK: - View Body
   var body: some View {
@@ -43,7 +44,13 @@ struct ContentView: View {
         }
     }
     .onContinueUserActivity(CSSearchableItemActionType, perform: moveToHome)
+    .onContinueUserActivity(neewProjectActivity, perform: createProject(_:))
     .onOpenURL(perform: openURL)
+    .userActivity(neewProjectActivity) { activity in
+      activity.title = "New Project"
+      activity.isEligibleForPrediction = true
+
+    }
   }
 
   // MARK: - View Methods
@@ -54,6 +61,11 @@ struct ContentView: View {
   func openURL(_ url: URL) {
     selectedView = ProjectsView.openTag
     _ = dataController.addProject()
+  }
+
+  func createProject(_ userActivity: NSUserActivity) {
+    selectedView = ProjectsView.openTag
+    dataController.addProject()
   }
 }
 

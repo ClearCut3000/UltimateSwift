@@ -211,7 +211,6 @@ class DataController: ObservableObject {
       }
   }
 
-
   // MARK: - Notifications DataController Methods
   func addReminders(for project: Project, completion: @escaping (Bool) -> Void) {
     let center = UNUserNotificationCenter.current()
