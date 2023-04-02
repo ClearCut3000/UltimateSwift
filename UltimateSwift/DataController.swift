@@ -45,12 +45,12 @@ class DataController: ObservableObject {
 
   /// Loads and saves whether our premium unlock has been purchased.
   var fullVersionUnlocked: Bool {
-      get {
-          defaults.bool(forKey: "fullVersionUnlocked")
-      }
-      set {
-          defaults.set(newValue, forKey: "fullVersionUnlocked")
-      }
+    get {
+      defaults.bool(forKey: "fullVersionUnlocked")
+    }
+    set {
+      defaults.set(newValue, forKey: "fullVersionUnlocked")
+    }
   }
 
   // MARK: - DataController Init
@@ -166,27 +166,8 @@ class DataController: ObservableObject {
     (try? container.viewContext.count(for: fetchRequest)) ?? 0
   }
 
-  func hasEarned(award: Award) -> Bool {
-    switch award.criterion {
-    case "items":
-      // returns true if they added a certain number of items
-      let fetchRequest: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
-      let awardCount = count(for: fetchRequest)
-      return awardCount >= award.value
-    case "complete":
-      // returns true if they completed a certain number of items
-      let fetchRequest: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
-      fetchRequest.predicate = NSPredicate(format: "completed = true")
-      let awardCount = count(for: fetchRequest)
-      return awardCount >= award.value
-    default:
-      // an unknown award criterion; this should never be allowed
-      //      fatalError("Unknown award criterion: \(award.criterion)")
-      return false
-    }
-  }
-
   /// Called when the app is launched to find the first active scene
+  @available(iOSApplicationExtension, unavailable)
   func appLaunched() {
     guard count(for: Project.fetchRequest()) >= 5 else { return }
     let allScenes = UIApplication.shared.connectedScenes
@@ -198,76 +179,16 @@ class DataController: ObservableObject {
 
   /// Method return a Boolean to say whether the new project was added successfully or not when using quick action
   @discardableResult func addProject() -> Bool {
-      let canCreate = fullVersionUnlocked || count(for: Project.fetchRequest()) < 3
+    let canCreate = fullVersionUnlocked || count(for: Project.fetchRequest()) < 3
 
-      if canCreate {
-          let project = Project(context: container.viewContext)
-          project.closed = false
-          project.creationDate = Date()
-          save()
-          return true
-      } else {
-          return false
-      }
-  }
-
-  // MARK: - Notifications DataController Methods
-  func addReminders(for project: Project, completion: @escaping (Bool) -> Void) {
-    let center = UNUserNotificationCenter.current()
-    center.getNotificationSettings { settings in
-      switch settings.authorizationStatus {
-      case .notDetermined:
-        self.requestNotifications { success in
-            if success {
-                self.placeReminders(for: project, completion: completion)
-            } else {
-                DispatchQueue.main.async {
-                    completion(false)
-                }
-            }
-        }
-      case .authorized:
-        self.placeReminders(for: project, completion: completion)
-      default:
-        DispatchQueue.main.async {
-          completion(false)
-        }
-      }
-    }
-  }
-
-  func removeReminders(for project: Project) {
-    let center = UNUserNotificationCenter.current()
-    let id = project.objectID.uriRepresentation().absoluteString
-    center.removePendingNotificationRequests(withIdentifiers: [id])
-  }
-
-  private func requestNotifications(completion: @escaping (Bool) -> Void) {
-    let center = UNUserNotificationCenter.current()
-    center.requestAuthorization(options: [.alert, .sound]) { granted, _ in
-      completion(granted)
-    }
-  }
-
-  private func placeReminders(for project: Project, completion: @escaping (Bool) -> Void) {
-    let content = UNMutableNotificationContent()
-    content.sound = .default
-    content.title = project.projectTitle
-    if let projectDetail = project.detail {
-        content.subtitle = projectDetail
-    }
-    let components = Calendar.current.dateComponents([.hour, .minute],
-                                                     from: project.reminderTime ?? Date())
-    let trigger = UNCalendarNotificationTrigger(dateMatching: components,
-                                                repeats: true)
-    let id = project.objectID.uriRepresentation().absoluteString
-    let request = UNNotificationRequest(identifier: id,
-                                        content: content,
-                                        trigger: trigger)
-    UNUserNotificationCenter.current().add(request) { error in
-      DispatchQueue.main.async {
-        error == nil ? completion(true) : completion(false)
-      }
+    if canCreate {
+      let project = Project(context: container.viewContext)
+      project.closed = false
+      project.creationDate = Date()
+      save()
+      return true
+    } else {
+      return false
     }
   }
 }

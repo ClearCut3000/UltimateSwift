@@ -65,7 +65,7 @@ struct ContentView: View {
 
   func createProject(_ userActivity: NSUserActivity) {
     selectedView = ProjectsView.openTag
-    dataController.addProject()
+    _ = dataController.addProject()
   }
 }
 
