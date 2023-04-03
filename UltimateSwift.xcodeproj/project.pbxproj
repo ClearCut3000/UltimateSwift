@@ -141,6 +141,7 @@
 		3677110F29DA09BC00F7CB82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3677111E29DA0C1200F7CB82 /* DataController-Reminders+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-Reminders+Extension.swift"; sourceTree = "<group>"; };
 		3677112029DA0CA400F7CB82 /* DataController-Awards+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-Awards+Extension.swift"; sourceTree = "<group>"; };
+		3677112329DB6C9A00F7CB82 /* UltimateSwiftWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UltimateSwiftWidgetExtension.entitlements; sourceTree = "<group>"; };
 		3684ED84297B26CB009559BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3684ED86297B26DB009559BD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3684ED88297B28F0009559BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -363,6 +364,7 @@
 		36EA08092953AA03001CBEA1 = {
 			isa = PBXGroup;
 			children = (
+				3677112329DB6C9A00F7CB82 /* UltimateSwiftWidgetExtension.entitlements */,
 				36EA08142953AA03001CBEA1 /* UltimateSwift */,
 				36DDA9552991772B0084E9FA /* UltimateSwiftTests */,
 				36DDA975299BED920084E9FA /* UltimateSwiftUITests */,
@@ -733,6 +735,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = UltimateSwiftWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CJ7JF497NG;
@@ -761,6 +764,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = UltimateSwiftWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CJ7JF497NG;
