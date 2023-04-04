@@ -9,60 +9,65 @@ import WidgetKit
 import SwiftUI
 import Intents
 
-struct Provider: IntentTimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent())
-    }
+struct Provider: TimelineProvider {
+  func placeholder(in context: Context) -> SimpleEntry {
+    SimpleEntry(date: Date(), items: [Item.example])
+  }
 
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), configuration: configuration)
-        completion(entry)
-    }
+  func getSnapshot(in context: Context,
+                   completion: @escaping (SimpleEntry) -> Void) {
+    let entry = SimpleEntry(date: Date(), items: loadItems())
+    completion(entry)
+  }
 
-    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
+  func getTimeline(in context: Context,
+                   completion: @escaping (Timeline<Entry>) -> Void) {
+    let entry = SimpleEntry(date: Date(), items: loadItems())
+    let timeline = Timeline(entries: [entry], policy: .never)
+    completion(timeline)
+  }
 
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
-        }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
-    }
+  func loadItems() -> [Item] {
+    let dataController = DataController()
+    let itemRequest = dataController.fetchRequestForTopItems(count: 1)
+    return dataController.results(for: itemRequest)
+  }
 }
 
 struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let configuration: ConfigurationIntent
+  let date: Date
+  let items: [Item]
 }
 
-struct UltimateSwiftWidgetEntryView : View {
-    var entry: Provider.Entry
-
-    var body: some View {
-        Text(entry.date, style: .time)
+struct UltimateSwiftWidgetEntryView: View {
+  var entry: Provider.Entry
+  var body: some View {
+    VStack {
+      Text("Up next...")
+        .font(.title)
+      if let item = entry.items.first {
+        Text(item.itemTitle)
+      } else {
+        Text("Nothing!")
+      }
     }
+  }
 }
 
 struct UltimateSwiftWidget: Widget {
-    let kind: String = "UltimateSwiftWidget"
-
-    var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
-            UltimateSwiftWidgetEntryView(entry: entry)
-        }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+  let kind: String = "UltimateSwiftWidget"
+  var body: some WidgetConfiguration {
+    StaticConfiguration(kind: kind, provider: Provider()) { entry in
+      UltimateSwiftWidgetEntryView(entry: entry)
     }
+    .configurationDisplayName("My Widget")
+    .description("This is an example widget.")
+  }
 }
 
 struct UltimateSwiftWidget_Previews: PreviewProvider {
-    static var previews: some View {
-        UltimateSwiftWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-    }
+  static var previews: some View {
+    UltimateSwiftWidgetEntryView(entry: SimpleEntry(date: Date(), items: [Item.example]))
+      .previewContext(WidgetPreviewContext(family: .systemSmall))
+  }
 }

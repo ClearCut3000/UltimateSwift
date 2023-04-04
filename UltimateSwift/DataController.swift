@@ -197,4 +197,21 @@ class DataController: ObservableObject {
       return false
     }
   }
+
+  /// Method that fetch one Item object that is not completed, belongs to an open project, and has the highest priority.
+  func fetchRequestForTopItems(count: Int) -> NSFetchRequest<Item> {
+    let itemRequest: NSFetchRequest<Item> = Item.fetchRequest()
+    let completedPredicate = NSPredicate(format: "completed = false")
+    let openPredicate = NSPredicate(format: "project.closed = false")
+    let compoundPredicate = NSCompoundPredicate(type: .and, subpredicates: [completedPredicate, openPredicate])
+    itemRequest.predicate = compoundPredicate
+    itemRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Item.priority,
+                                                    ascending: false)]
+    itemRequest.fetchLimit = count
+    return itemRequest
+  }
+
+  func results<T: NSManagedObject>(for fetchRequest: NSFetchRequest<T>) -> [T] {
+    return (try? container.viewContext.fetch(fetchRequest)) ?? []
+  }
 }
