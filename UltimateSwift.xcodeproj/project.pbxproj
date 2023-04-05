@@ -40,6 +40,7 @@
 		3677111F29DA0C1200F7CB82 /* DataController-Reminders+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3677111E29DA0C1200F7CB82 /* DataController-Reminders+Extension.swift */; };
 		3677112129DA0CA400F7CB82 /* DataController-Awards+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3677112029DA0CA400F7CB82 /* DataController-Awards+Extension.swift */; };
 		3677112229DA0DE300F7CB82 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA087C295E257D001CBEA1 /* DataController.swift */; };
+		3677112429DE121E00F7CB82 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3684ED85297B26CB009559BD /* Localizable.strings */; };
 		3684ED83297B26CB009559BD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3684ED85297B26CB009559BD /* Localizable.strings */; };
 		3684ED87297B28F0009559BD /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 3684ED89297B28F0009559BD /* Localizable.stringsdict */; };
 		3684ED8B297B2A19009559BD /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 3684ED8D297B2A19009559BD /* Awards.json */; };
@@ -545,6 +546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3677110E29DA09BC00F7CB82 /* Assets.xcassets in Resources */,
+				3677112429DE121E00F7CB82 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
