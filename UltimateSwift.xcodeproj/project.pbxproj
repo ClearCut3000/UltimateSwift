@@ -29,7 +29,6 @@
 		3677110229DA09B700F7CB82 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3677110129DA09B700F7CB82 /* WidgetKit.framework */; };
 		3677110429DA09B700F7CB82 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3677110329DA09B700F7CB82 /* SwiftUI.framework */; };
 		3677110729DA09B700F7CB82 /* UltimateSwiftWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3677110629DA09B700F7CB82 /* UltimateSwiftWidgetBundle.swift */; };
-		3677110929DA09B700F7CB82 /* UltimateSwiftWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3677110829DA09B700F7CB82 /* UltimateSwiftWidgetLiveActivity.swift */; };
 		3677110B29DA09B700F7CB82 /* UltimateSwiftWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3677110A29DA09B700F7CB82 /* UltimateSwiftWidget.swift */; };
 		3677110E29DA09BC00F7CB82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3677110D29DA09BC00F7CB82 /* Assets.xcassets */; };
 		3677111029DA09BC00F7CB82 /* UltimateSwiftWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3677110C29DA09B800F7CB82 /* UltimateSwiftWidget.intentdefinition */; };
@@ -59,6 +58,9 @@
 		36DDA979299BED920084E9FA /* UltimateSwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA978299BED920084E9FA /* UltimateSwiftUITestsLaunchTests.swift */; };
 		36E76E1F29D21A0500CEE274 /* SKProduct-LocalizedPrice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E76E1E29D21A0400CEE274 /* SKProduct-LocalizedPrice+Extension.swift */; };
 		36E76E2129D21AEE00CEE274 /* PurchaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E76E2029D21AEE00CEE274 /* PurchaseButton.swift */; };
+		36E89AA029DF683200FDA169 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EA08192953AA06001CBEA1 /* Assets.xcassets */; };
+		36E89AA129DF684E00FDA169 /* Project-CoreDataHelper+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08AB2960D1FF001CBEA1 /* Project-CoreDataHelper+Extension.swift */; };
+		36E89AA229DF685E00FDA169 /* Sequence + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620211A29661C0C00F13F5B /* Sequence + Extension.swift */; };
 		36EA08162953AA03001CBEA1 /* UltimateSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */; };
 		36EA08182953AA03001CBEA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08172953AA03001CBEA1 /* ContentView.swift */; };
 		36EA081A2953AA06001CBEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EA08192953AA06001CBEA1 /* Assets.xcassets */; };
@@ -135,7 +137,6 @@
 		3677110129DA09B700F7CB82 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		3677110329DA09B700F7CB82 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		3677110629DA09B700F7CB82 /* UltimateSwiftWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftWidgetBundle.swift; sourceTree = "<group>"; };
-		3677110829DA09B700F7CB82 /* UltimateSwiftWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftWidgetLiveActivity.swift; sourceTree = "<group>"; };
 		3677110A29DA09B700F7CB82 /* UltimateSwiftWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftWidget.swift; sourceTree = "<group>"; };
 		3677110C29DA09B800F7CB82 /* UltimateSwiftWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = UltimateSwiftWidget.intentdefinition; sourceTree = "<group>"; };
 		3677110D29DA09BC00F7CB82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -255,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				3677110629DA09B700F7CB82 /* UltimateSwiftWidgetBundle.swift */,
-				3677110829DA09B700F7CB82 /* UltimateSwiftWidgetLiveActivity.swift */,
 				3677110A29DA09B700F7CB82 /* UltimateSwiftWidget.swift */,
 				3677110C29DA09B800F7CB82 /* UltimateSwiftWidget.intentdefinition */,
 				3677110D29DA09BC00F7CB82 /* Assets.xcassets */,
@@ -546,6 +546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3677110E29DA09BC00F7CB82 /* Assets.xcassets in Resources */,
+				36E89AA029DF683200FDA169 /* Assets.xcassets in Resources */,
 				3677112429DE121E00F7CB82 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -607,10 +608,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36E89AA129DF684E00FDA169 /* Project-CoreDataHelper+Extension.swift in Sources */,
 				3677112229DA0DE300F7CB82 /* DataController.swift in Sources */,
 				3677110B29DA09B700F7CB82 /* UltimateSwiftWidget.swift in Sources */,
 				3677110729DA09B700F7CB82 /* UltimateSwiftWidgetBundle.swift in Sources */,
-				3677110929DA09B700F7CB82 /* UltimateSwiftWidgetLiveActivity.swift in Sources */,
+				36E89AA229DF685E00FDA169 /* Sequence + Extension.swift in Sources */,
 				3677111029DA09BC00F7CB82 /* UltimateSwiftWidget.intentdefinition in Sources */,
 				3677111929DA0AFB00F7CB82 /* Main.xcdatamodeld in Sources */,
 				3677111A29DA0B2300F7CB82 /* Item-CoreDataHelper+Extension.swift in Sources */,

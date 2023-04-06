@@ -10,8 +10,8 @@ import SwiftUI
 
 @main
 struct UltimateSwiftWidgetBundle: WidgetBundle {
-    var body: some Widget {
-        UltimateSwiftWidget()
-        UltimateSwiftWidgetLiveActivity()
-    }
+  var body: some Widget {
+    UltimateSwiftWidget()
+    ComplexUltimateSwiftWidget()
+  }
 }

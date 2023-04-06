@@ -54,6 +54,34 @@ struct UltimateSwiftWidgetEntryView: View {
   }
 }
 
+struct UltimateSwiftWidgetMultipleEntryView: View {
+  let entry: Provider.Entry
+  var body: some View {
+    VStack(spacing: 5) {
+      ForEach(entry.items) { item in
+        HStack {
+          Color(item.project?.color ?? "Light Blue")
+            .frame(width: 5)
+            .clipShape(Capsule())
+
+          VStack(alignment: .leading) {
+            Text(item.itemTitle)
+              .font(.headline)
+
+            if let projectTitle = item.project?.projectTitle {
+              Text(projectTitle)
+                .foregroundColor(.secondary)
+            }
+          }
+
+          Spacer()
+        }
+      }
+    }
+    .padding(20)
+  }
+}
+
 struct UltimateSwiftWidget: Widget {
   let kind: String = "UltimateSwiftWidget"
   var body: some WidgetConfiguration {
@@ -63,6 +91,17 @@ struct UltimateSwiftWidget: Widget {
     .configurationDisplayName("Up next…")
     .description("Your #1 top-priority item.")
     .supportedFamilies([.systemSmall])
+  }
+}
+
+struct ComplexUltimateSwiftWidget: Widget {
+  let kind: String = "ComplexUltimateSwiftWidget"
+  var body: some WidgetConfiguration {
+    StaticConfiguration(kind: kind, provider: Provider()) { entry in
+      UltimateSwiftWidgetMultipleEntryView(entry: entry)
+    }
+    .configurationDisplayName("Up next…")
+    .description("Your most important items.")
   }
 }
 
