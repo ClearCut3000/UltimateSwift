@@ -29,7 +29,7 @@
 		3677110229DA09B700F7CB82 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3677110129DA09B700F7CB82 /* WidgetKit.framework */; };
 		3677110429DA09B700F7CB82 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3677110329DA09B700F7CB82 /* SwiftUI.framework */; };
 		3677110729DA09B700F7CB82 /* UltimateSwiftWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3677110629DA09B700F7CB82 /* UltimateSwiftWidgetBundle.swift */; };
-		3677110B29DA09B700F7CB82 /* UltimateSwiftWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3677110A29DA09B700F7CB82 /* UltimateSwiftWidget.swift */; };
+		3677110B29DA09B700F7CB82 /* ComplexWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3677110A29DA09B700F7CB82 /* ComplexWidget.swift */; };
 		3677110E29DA09BC00F7CB82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3677110D29DA09BC00F7CB82 /* Assets.xcassets */; };
 		3677111029DA09BC00F7CB82 /* UltimateSwiftWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3677110C29DA09B800F7CB82 /* UltimateSwiftWidget.intentdefinition */; };
 		3677111129DA09BC00F7CB82 /* UltimateSwiftWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3677110C29DA09B800F7CB82 /* UltimateSwiftWidget.intentdefinition */; };
@@ -61,6 +61,9 @@
 		36E89AA029DF683200FDA169 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EA08192953AA06001CBEA1 /* Assets.xcassets */; };
 		36E89AA129DF684E00FDA169 /* Project-CoreDataHelper+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08AB2960D1FF001CBEA1 /* Project-CoreDataHelper+Extension.swift */; };
 		36E89AA229DF685E00FDA169 /* Sequence + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620211A29661C0C00F13F5B /* Sequence + Extension.swift */; };
+		36E89AA429DF6EA400FDA169 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E89AA329DF6EA400FDA169 /* DataProvider.swift */; };
+		36E89AA629DF6EF400FDA169 /* SimpleWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E89AA529DF6EF400FDA169 /* SimpleWidget.swift */; };
+		36E89AA829DF715500FDA169 /* DataControlller-StoreKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E89AA729DF715500FDA169 /* DataControlller-StoreKit+Extension.swift */; };
 		36EA08162953AA03001CBEA1 /* UltimateSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */; };
 		36EA08182953AA03001CBEA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08172953AA03001CBEA1 /* ContentView.swift */; };
 		36EA081A2953AA06001CBEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EA08192953AA06001CBEA1 /* Assets.xcassets */; };
@@ -137,7 +140,7 @@
 		3677110129DA09B700F7CB82 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		3677110329DA09B700F7CB82 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		3677110629DA09B700F7CB82 /* UltimateSwiftWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftWidgetBundle.swift; sourceTree = "<group>"; };
-		3677110A29DA09B700F7CB82 /* UltimateSwiftWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftWidget.swift; sourceTree = "<group>"; };
+		3677110A29DA09B700F7CB82 /* ComplexWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexWidget.swift; sourceTree = "<group>"; };
 		3677110C29DA09B800F7CB82 /* UltimateSwiftWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = UltimateSwiftWidget.intentdefinition; sourceTree = "<group>"; };
 		3677110D29DA09BC00F7CB82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3677110F29DA09BC00F7CB82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -167,6 +170,9 @@
 		36DDA978299BED920084E9FA /* UltimateSwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		36E76E1E29D21A0400CEE274 /* SKProduct-LocalizedPrice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct-LocalizedPrice+Extension.swift"; sourceTree = "<group>"; };
 		36E76E2029D21AEE00CEE274 /* PurchaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseButton.swift; sourceTree = "<group>"; };
+		36E89AA329DF6EA400FDA169 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		36E89AA529DF6EF400FDA169 /* SimpleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleWidget.swift; sourceTree = "<group>"; };
+		36E89AA729DF715500FDA169 /* DataControlller-StoreKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataControlller-StoreKit+Extension.swift"; sourceTree = "<group>"; };
 		36EA08122953AA03001CBEA1 /* UltimateSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimateSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EA08152953AA03001CBEA1 /* UltimateSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftApp.swift; sourceTree = "<group>"; };
 		36EA08172953AA03001CBEA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -228,6 +234,7 @@
 				36E76E1E29D21A0400CEE274 /* SKProduct-LocalizedPrice+Extension.swift */,
 				3677111E29DA0C1200F7CB82 /* DataController-Reminders+Extension.swift */,
 				3677112029DA0CA400F7CB82 /* DataController-Awards+Extension.swift */,
+				36E89AA729DF715500FDA169 /* DataControlller-StoreKit+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -256,10 +263,12 @@
 			isa = PBXGroup;
 			children = (
 				3677110629DA09B700F7CB82 /* UltimateSwiftWidgetBundle.swift */,
-				3677110A29DA09B700F7CB82 /* UltimateSwiftWidget.swift */,
+				3677110A29DA09B700F7CB82 /* ComplexWidget.swift */,
 				3677110C29DA09B800F7CB82 /* UltimateSwiftWidget.intentdefinition */,
 				3677110D29DA09BC00F7CB82 /* Assets.xcassets */,
 				3677110F29DA09BC00F7CB82 /* Info.plist */,
+				36E89AA329DF6EA400FDA169 /* DataProvider.swift */,
+				36E89AA529DF6EF400FDA169 /* SimpleWidget.swift */,
 			);
 			path = UltimateSwiftWidget;
 			sourceTree = "<group>";
@@ -609,11 +618,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				36E89AA129DF684E00FDA169 /* Project-CoreDataHelper+Extension.swift in Sources */,
+				36E89AA629DF6EF400FDA169 /* SimpleWidget.swift in Sources */,
 				3677112229DA0DE300F7CB82 /* DataController.swift in Sources */,
-				3677110B29DA09B700F7CB82 /* UltimateSwiftWidget.swift in Sources */,
+				3677110B29DA09B700F7CB82 /* ComplexWidget.swift in Sources */,
 				3677110729DA09B700F7CB82 /* UltimateSwiftWidgetBundle.swift in Sources */,
 				36E89AA229DF685E00FDA169 /* Sequence + Extension.swift in Sources */,
 				3677111029DA09BC00F7CB82 /* UltimateSwiftWidget.intentdefinition in Sources */,
+				36E89AA429DF6EA400FDA169 /* DataProvider.swift in Sources */,
 				3677111929DA0AFB00F7CB82 /* Main.xcdatamodeld in Sources */,
 				3677111A29DA0B2300F7CB82 /* Item-CoreDataHelper+Extension.swift in Sources */,
 			);
@@ -649,6 +660,7 @@
 				362020E72962052200F13F5B /* ItemRowView.swift in Sources */,
 				3677111F29DA0C1200F7CB82 /* DataController-Reminders+Extension.swift in Sources */,
 				3684ED922981CF09009559BD /* ProjectSummaryView.swift in Sources */,
+				36E89AA829DF715500FDA169 /* DataControlller-StoreKit+Extension.swift in Sources */,
 				3647C96529D61E0D0055FC02 /* SceneDelegate.swift in Sources */,
 				36E76E2129D21AEE00CEE274 /* PurchaseButton.swift in Sources */,
 				362020EC29646CA800F13F5B /* ProjectHeaderView.swift in Sources */,

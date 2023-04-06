@@ -9,7 +9,6 @@ import CoreData
 import CoreSpotlight
 import SwiftUI
 import WidgetKit
-import StoreKit
 
 /// An environment singleton responsible for managing our Core Data stack, including handling saving,
 /// counting fetch requests, tracking awards, and dealing with sample data.
@@ -170,17 +169,6 @@ class DataController: ObservableObject {
 
   func count<T>(for fetchRequest: NSFetchRequest<T>) -> Int {
     (try? container.viewContext.count(for: fetchRequest)) ?? 0
-  }
-
-  /// Called when the app is launched to find the first active scene
-  @available(iOSApplicationExtension, unavailable)
-  func appLaunched() {
-    guard count(for: Project.fetchRequest()) >= 5 else { return }
-    let allScenes = UIApplication.shared.connectedScenes
-    let scene = allScenes.first { $0.activationState == .foregroundActive }
-    if let windowScene = scene as? UIWindowScene {
-      SKStoreReviewController.requestReview(in: windowScene)
-    }
   }
 
   /// Method return a Boolean to say whether the new project was added successfully or not when using quick action
