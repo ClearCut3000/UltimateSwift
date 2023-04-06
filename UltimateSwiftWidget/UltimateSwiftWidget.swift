@@ -9,6 +9,7 @@ import WidgetKit
 import SwiftUI
 import Intents
 
+// MARK: - TimelineProvider
 struct Provider: TimelineProvider {
   func placeholder(in context: Context) -> SimpleEntry {
     SimpleEntry(date: Date(), items: [Item.example])
@@ -34,11 +35,13 @@ struct Provider: TimelineProvider {
   }
 }
 
+// MARK: - TimelineEntry
 struct SimpleEntry: TimelineEntry {
   let date: Date
   let items: [Item]
 }
 
+// MARK: - View's
 struct UltimateSwiftWidgetEntryView: View {
   var entry: Provider.Entry
   var body: some View {
@@ -55,7 +58,32 @@ struct UltimateSwiftWidgetEntryView: View {
 }
 
 struct UltimateSwiftWidgetMultipleEntryView: View {
+  /// Properties
+  @Environment(\.widgetFamily) var widgetFamily
+  @Environment(\.sizeCategory) var sizeCategory
   let entry: Provider.Entry
+  var items: ArraySlice<Item> {
+    let itemCount: Int
+    switch widgetFamily {
+    case .systemSmall:
+      itemCount = 1
+    case .systemLarge:
+      if sizeCategory < .extraExtraLarge {
+        itemCount = 5
+      } else {
+        itemCount = 4
+      }
+    default:
+      if sizeCategory < .extraLarge {
+        itemCount = 3
+      } else {
+        itemCount = 2
+      }
+    }
+    return entry.items.prefix(itemCount)
+  }
+
+  /// Body
   var body: some View {
     VStack(spacing: 5) {
       ForEach(entry.items) { item in
@@ -63,17 +91,15 @@ struct UltimateSwiftWidgetMultipleEntryView: View {
           Color(item.project?.color ?? "Light Blue")
             .frame(width: 5)
             .clipShape(Capsule())
-
           VStack(alignment: .leading) {
             Text(item.itemTitle)
               .font(.headline)
-
+              .layoutPriority(1)
             if let projectTitle = item.project?.projectTitle {
               Text(projectTitle)
                 .foregroundColor(.secondary)
             }
           }
-
           Spacer()
         }
       }
@@ -82,6 +108,7 @@ struct UltimateSwiftWidgetMultipleEntryView: View {
   }
 }
 
+// MARK: - Widget's
 struct UltimateSwiftWidget: Widget {
   let kind: String = "UltimateSwiftWidget"
   var body: some WidgetConfiguration {
