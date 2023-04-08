@@ -262,13 +262,13 @@
 		3677110529DA09B700F7CB82 /* UltimateSwiftWidget */ = {
 			isa = PBXGroup;
 			children = (
-				3677110629DA09B700F7CB82 /* UltimateSwiftWidgetBundle.swift */,
-				3677110A29DA09B700F7CB82 /* ComplexWidget.swift */,
 				3677110C29DA09B800F7CB82 /* UltimateSwiftWidget.intentdefinition */,
-				3677110D29DA09BC00F7CB82 /* Assets.xcassets */,
 				3677110F29DA09BC00F7CB82 /* Info.plist */,
+				3677110A29DA09B700F7CB82 /* ComplexWidget.swift */,
 				36E89AA329DF6EA400FDA169 /* DataProvider.swift */,
 				36E89AA529DF6EF400FDA169 /* SimpleWidget.swift */,
+				3677110629DA09B700F7CB82 /* UltimateSwiftWidgetBundle.swift */,
+				3677110D29DA09BC00F7CB82 /* Assets.xcassets */,
 			);
 			path = UltimateSwiftWidget;
 			sourceTree = "<group>";
