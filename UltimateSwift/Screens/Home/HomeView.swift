@@ -46,8 +46,8 @@ struct HomeView: View {
             .fixedSize(horizontal: false, vertical: true)
           }
           VStack(alignment: .leading) {
-            ItemListView(title: "Up next", items: viewModel.upNext)
-            ItemListView(title: "More to explore", items: viewModel.moreToExplore)
+            ItemListView(title: "Up next", items: $viewModel.upNext)
+            ItemListView(title: "More to explore", items: $viewModel.moreToExplore)
           }
           .padding(.horizontal)
         }

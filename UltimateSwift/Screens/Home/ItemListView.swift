@@ -11,7 +11,7 @@ struct ItemListView: View {
 
   // MARK: - View Properties
   let title: LocalizedStringKey
-  let items: ArraySlice<Item>
+  @Binding var items: ArraySlice<Item>
 
   // MARK: - View Body
   var body: some View {
