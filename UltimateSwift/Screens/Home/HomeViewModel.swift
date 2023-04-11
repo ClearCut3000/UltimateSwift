@@ -57,13 +57,12 @@ extension HomeView {
 
     // MARK: - Methods
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-      if let newItems = controller.fetchedObjects as? [Item] {
-        items = newItems
-        upNext = items.prefix(3)
-        moreToExplore = items.dropFirst(3)
-      } else if let newProjects = controller.fetchedObjects as? [Project] {
-        projects = newProjects
-      }
+      items = itemsController.fetchedObjects ?? []
+      
+      upNext = items.prefix(3)
+      moreToExplore = items.dropFirst(3)
+
+      projects = projectsController.fetchedObjects ?? []
     }
 
     func addSampleData() {

@@ -160,12 +160,22 @@ class DataController: ObservableObject {
   }
 
   func deleteAll() {
-    let itemsFetchRequest: NSFetchRequest<NSFetchRequestResult> = Item.fetchRequest()
-    let itemsBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: itemsFetchRequest)
-    _ = try? container.viewContext.execute(itemsBatchDeleteRequest)
-    let projectsFetchRequest: NSFetchRequest<NSFetchRequestResult> = Project.fetchRequest()
-    let projectsBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: projectsFetchRequest)
-    _ = try? container.viewContext.execute(projectsBatchDeleteRequest)
+    let fetchRequest1: NSFetchRequest<NSFetchRequestResult> = Item.fetchRequest()
+    delete(fetchRequest1)
+    let fetchRequest2: NSFetchRequest<NSFetchRequestResult> = Project.fetchRequest()
+    delete(fetchRequest2)
+  }
+
+  /// asking the batch delete request to send back all the object IDs that got deleted
+  /// array of object IDs goes into a dictionary with the key NSDeletedObjectsKey, with a default empty array if it can’t be read
+  /// dictionary goes into the mergeChanges() method, which updates view context with the changes just made to the persistent store
+  private func delete(_ fetchRequest: NSFetchRequest<NSFetchRequestResult>) {
+    let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+    batchDeleteRequest1.resultType = .resultTypeObjectIDs
+    if let delete = try? container.viewContext.execute(batchDeleteRequest1) as? NSBatchDeleteResult {
+      let changes = [NSDeletedObjectsKey: delete.result as? [NSManagedObjectID] ?? []]
+      NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [container.viewContext])
+    }
   }
 
   func count<T>(for fetchRequest: NSFetchRequest<T>) -> Int {
