@@ -17,6 +17,9 @@
 		3620211F2968BE7800F13F5B /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3620211E2968BE7800F13F5B /* Bundle+Extension.swift */; };
 		362021232968C2C800F13F5B /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362021222968C2C800F13F5B /* Award.swift */; };
 		362021252968C34800F13F5B /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362021242968C34800F13F5B /* AwardsView.swift */; };
+		36279E6229E89D9E00DFAAC9 /* SharedProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36279E6129E89D9E00DFAAC9 /* SharedProject.swift */; };
+		36279E6429E89DD600DFAAC9 /* SharedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36279E6329E89DD600DFAAC9 /* SharedItem.swift */; };
+		36279E6629E89E0000DFAAC9 /* LoadStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36279E6529E89E0000DFAAC9 /* LoadStates.swift */; };
 		362DD8B12977380E0042ABF7 /* Color-Additions+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362DD8B02977380E0042ABF7 /* Color-Additions+Extension.swift */; };
 		3647C95E29D2207C0055FC02 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647C95D29D2207C0055FC02 /* ProductView.swift */; };
 		3647C96029D2214F0055FC02 /* UnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647C95F29D2214F0055FC02 /* UnlockView.swift */; };
@@ -126,6 +129,9 @@
 		3620211E2968BE7800F13F5B /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		362021222968C2C800F13F5B /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
 		362021242968C34800F13F5B /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
+		36279E6129E89D9E00DFAAC9 /* SharedProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedProject.swift; sourceTree = "<group>"; };
+		36279E6329E89DD600DFAAC9 /* SharedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedItem.swift; sourceTree = "<group>"; };
+		36279E6529E89E0000DFAAC9 /* LoadStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadStates.swift; sourceTree = "<group>"; };
 		362DD8B02977380E0042ABF7 /* Color-Additions+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Additions+Extension.swift"; sourceTree = "<group>"; };
 		3647C95D29D2207C0055FC02 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		3647C95F29D2214F0055FC02 /* UnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockView.swift; sourceTree = "<group>"; };
@@ -239,6 +245,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		36279E6729E89EE900DFAAC9 /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				36279E6129E89D9E00DFAAC9 /* SharedProject.swift */,
+				36279E6329E89DD600DFAAC9 /* SharedItem.swift */,
+				36279E6529E89E0000DFAAC9 /* LoadStates.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
 		3647C96129D381C00055FC02 /* Unlock */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +314,7 @@
 				36DDA94E29902F630084E9FA /* Projects */,
 				36DDA94D29902F5B0084E9FA /* Home */,
 				36DDA94F29902F690084E9FA /* Awards */,
+				36279E6729E89EE900DFAAC9 /* Community */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -662,6 +679,7 @@
 				3684ED922981CF09009559BD /* ProjectSummaryView.swift in Sources */,
 				36E89AA829DF715500FDA169 /* DataControlller-StoreKit+Extension.swift in Sources */,
 				3647C96529D61E0D0055FC02 /* SceneDelegate.swift in Sources */,
+				36279E6429E89DD600DFAAC9 /* SharedItem.swift in Sources */,
 				36E76E2129D21AEE00CEE274 /* PurchaseButton.swift in Sources */,
 				362020EC29646CA800F13F5B /* ProjectHeaderView.swift in Sources */,
 				3647C95E29D2207C0055FC02 /* ProductView.swift in Sources */,
@@ -681,7 +699,9 @@
 				3677111129DA09BC00F7CB82 /* UltimateSwiftWidget.intentdefinition in Sources */,
 				3647C96329D61CBF0055FC02 /* AppDelegate.swift in Sources */,
 				36EA087D295E257D001CBEA1 /* DataController.swift in Sources */,
+				36279E6229E89D9E00DFAAC9 /* SharedProject.swift in Sources */,
 				362020E929620C1A00F13F5B /* Binding-onChange+Extension.swift in Sources */,
+				36279E6629E89E0000DFAAC9 /* LoadStates.swift in Sources */,
 				362DD8B12977380E0042ABF7 /* Color-Additions+Extension.swift in Sources */,
 				3677112129DA0CA400F7CB82 /* DataController-Awards+Extension.swift in Sources */,
 				36EA08AA2960D081001CBEA1 /* Item-CoreDataHelper+Extension.swift in Sources */,

@@ -58,10 +58,8 @@ extension HomeView {
     // MARK: - Methods
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
       items = itemsController.fetchedObjects ?? []
-      
       upNext = items.prefix(3)
       moreToExplore = items.dropFirst(3)
-
       projects = projectsController.fetchedObjects ?? []
     }
 
@@ -71,7 +69,7 @@ extension HomeView {
     }
 
     func selectItem(with identifier: String) {
-        selectedItem = dataController.item(with: identifier)
+      selectedItem = dataController.item(with: identifier)
     }
   }
 }
