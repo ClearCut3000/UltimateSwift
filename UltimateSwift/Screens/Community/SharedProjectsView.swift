@@ -39,7 +39,36 @@ struct SharedProjectsView: View {
     }
     .onAppear(perform: fetchSharedProjects)
   }
+
+  func fetchSharedProjects() {
+    guard loadState == .inactive else { return }
+    loadState = .loading
+    let pred = NSPredicate(value: true)
+    let sort = NSSortDescriptor(key: "creationDate", ascending: false)
+    let query = CKQuery(recordType: "Project", predicate: pred)
+    query.sortDescriptors = [sort]
+    let operation = CKQueryOperation(query: query)
+    operation.desiredKeys = ["title", "detail", "owner", "closed"]
+    operation.resultsLimit = 50
+    /// will be called once for each record downloaded by CloudKit as a result of our query
+    operation.recordFetchedBlock = { record in
+      let id = record.recordID.recordName
+      let title = record["title"] as? String ?? "No title"
+      let detail = record["detail"] as? String ?? ""
+      let owner = record["owner"] as? String ?? "No owner"
+      let closed = record["closed"] as? Bool ?? false
+      let sharedProject = SharedProject(id: id, title: title, detail: detail, owner: owner, closed: closed)
+      projects.append(sharedProject)
+      loadState = .success
+    }
+    /// will be called when all records have been retrieved
+    operation.queryCompletionBlock = { _, _ in
+      if projects.isEmpty {
+        loadState = .noResults
+      }
+    }
+    CKContainer.default().publicCloudDatabase.add(operation)
+  }
 }
 
-func fetchSharedProjects() {
-}
+
