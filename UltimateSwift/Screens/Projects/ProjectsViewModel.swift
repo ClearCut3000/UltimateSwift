@@ -28,7 +28,7 @@ extension ProjectsView {
       let request: NSFetchRequest<Project> = Project.fetchRequest()
       request.sortDescriptors = [NSSortDescriptor(keyPath: \Project.creationDate,
                                                   ascending: false)]
-      request.predicate = NSPredicate(format: "closed= = %d", showClosedProjects)
+      request.predicate = NSPredicate(format: "closed = %d", showClosedProjects)
       /// wrap that NSFetchRequest in an NSFetchedResultsController
       projectsController = NSFetchedResultsController(fetchRequest: request,
                                                       managedObjectContext: dataController.container.viewContext,

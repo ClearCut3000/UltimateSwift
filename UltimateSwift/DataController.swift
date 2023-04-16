@@ -167,8 +167,10 @@ class DataController: ObservableObject {
   }
 
   /// asking the batch delete request to send back all the object IDs that got deleted
-  /// array of object IDs goes into a dictionary with the key NSDeletedObjectsKey, with a default empty array if it can’t be read
-  /// dictionary goes into the mergeChanges() method, which updates view context with the changes just made to the persistent store
+  /// array of object IDs goes into a dictionary with the key NSDeletedObjectsKey,
+  /// with a default empty array if it can’t be read
+  /// dictionary goes into the mergeChanges() method, which updates view context
+  /// with the changes just made to the persistent store
   private func delete(_ fetchRequest: NSFetchRequest<NSFetchRequestResult>) {
     let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest)
     batchDeleteRequest1.resultType = .resultTypeObjectIDs

@@ -70,5 +70,3 @@ struct SharedProjectsView: View {
     CKContainer.default().publicCloudDatabase.add(operation)
   }
 }
-
-

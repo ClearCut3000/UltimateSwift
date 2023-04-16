@@ -17,6 +17,6 @@ struct SharedProject: Identifiable {
   static let example = SharedProject(id: "1",
                                      title: "Example",
                                      detail: "Detail",
-                                     owner: "TwoStraws",
+                                     owner: "ClearCut3000",
                                      closed: false)
 }
