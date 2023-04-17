@@ -60,13 +60,40 @@ struct SignInView: View {
 
   // MARK: - View Methods
   func configureSignIn(_ request: ASAuthorizationAppleIDRequest) {
+    request.requestedScopes = [.fullName]
   }
 
   func completeSignIn(_ result: Result<ASAuthorization, Error>) {
+    switch result {
+    case .success(let auth):
+      if let appleID = auth.credential as? ASAuthorizationAppleIDCredential {
+        if let fullName = appleID.fullName {
+          let formatter = PersonNameComponentsFormatter()
+          var username = formatter.string(from: fullName).trimmingCharacters(in: .whitespacesAndNewlines)
+          if username.isEmpty {
+            username = "User-\(Int.random(in: 1001...9999))"
+          }
+          UserDefaults.standard.set(username, forKey: "username")
+          NSUbiquitousKeyValueStore.default.set(username, forKey: "username")
+          status = .authorized
+          close()
+          return
+        }
+      }
+      status = .failure(nil)
+    case .failure(let error):
+      if let error = error as? ASAuthorizationError {
+        if error.errorCode == ASAuthorizationError.canceled.rawValue {
+          status = .unknown
+          return
+        }
+      }
+      status = .failure(error)
+    }
   }
 
   func close() {
-      presentationMode.wrappedValue.dismiss()
+    presentationMode.wrappedValue.dismiss()
   }
 }
 
