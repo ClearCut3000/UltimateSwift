@@ -12,9 +12,32 @@ struct SharedItemsView: View {
 
   // MARK: - View Properties
   let project: SharedProject
-
   @State private var items = [SharedItem]()
   @State private var itemsLoadState = LoadState.inactive
+  @State private var messages = [ChatMessage]()
+  @AppStorage("username") var username: String?
+  @State private var showingSignIn = false
+  @State private var newChatText = ""
+  @ViewBuilder var messagesFooter: some View {
+      if username == nil {
+          Button("Sign in to comment", action: signIn)
+              .frame(maxWidth: .infinity)
+      } else {
+          VStack {
+              TextField("Enter your message", text: $newChatText)
+                  .textFieldStyle(RoundedBorderTextFieldStyle())
+                  .textCase(nil)
+              Button(action: sendChatMessage) {
+                  Text("Send")
+                      .frame(maxWidth: .infinity, minHeight: 44)
+                      .background(Color.blue)
+                      .foregroundColor(.white)
+                      .clipShape(Capsule())
+                      .contentShape(Capsule())
+              }
+          }
+      }
+  }
 
   // MARK: - View Body
   var body: some View {
@@ -30,7 +53,6 @@ struct SharedItemsView: View {
             VStack(alignment: .leading) {
               Text(item.title)
                 .font(.headline)
-
               if item.detail.isEmpty == false {
                 Text(item.detail)
               }
@@ -38,12 +60,17 @@ struct SharedItemsView: View {
           }
         }
       }
+      Section(header: Text("Chat about this project…"),
+              footer: messagesFooter) {
+        Text("Messages go here")
+      }
     }
     .listStyle(InsetGroupedListStyle())
     .navigationTitle(project.title)
     .onAppear {
       fetchSharedItems()
     }
+    .sheet(isPresented: $showingSignIn, content: SignInView.init)
   }
 
   // MARK: - View Methods
@@ -77,6 +104,32 @@ struct SharedItemsView: View {
       }
     }
     CKContainer.default().publicCloudDatabase.add(operation)
+  }
+
+  func signIn() {
+    showingSignIn = true
+  }
+
+  func sendChatMessage() {
+    let text = newChatText.trimmingCharacters(in: .whitespacesAndNewlines)
+    guard text.count > 2 else { return }
+    guard let username = username else { return }
+    let message = CKRecord(recordType: "Message")
+    message["from"] = username
+    message["text"] = text
+    let projectID = CKRecord.ID(recordName: project.id)
+    message["project"] = CKRecord.Reference(recordID: projectID, action: .deleteSelf)
+    let backupChatText = newChatText
+    newChatText = ""
+    CKContainer.default().publicCloudDatabase.save(message) { record, error in
+        if let error = error {
+            print(error.localizedDescription)
+            newChatText = backupChatText
+        } else if let record = record {
+            let message = ChatMessage(from: record)
+            messages.append(message)
+        }
+    }
   }
 }
 
