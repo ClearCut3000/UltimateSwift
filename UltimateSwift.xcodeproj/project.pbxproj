@@ -51,6 +51,7 @@
 		3684ED90297F4586009559BD /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684ED8F297F4586009559BD /* ItemListView.swift */; };
 		3684ED922981CF09009559BD /* ProjectSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684ED912981CF09009559BD /* ProjectSummaryView.swift */; };
 		36D2B94629ED4C7200F0BBA7 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D2B94529ED4C7200F0BBA7 /* SignInView.swift */; };
+		36D2B94829ED566600F0BBA7 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D2B94729ED566600F0BBA7 /* ChatMessage.swift */; };
 		36DDA9572991772B0084E9FA /* UltimateSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA9562991772B0084E9FA /* UltimateSwiftTests.swift */; };
 		36DDA95E29917F230084E9FA /* AssetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA95D29917F230084E9FA /* AssetTests.swift */; };
 		36DDA96029918C830084E9FA /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA95F29918C830084E9FA /* ProjectTests.swift */; };
@@ -167,6 +168,7 @@
 		3684ED8F297F4586009559BD /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
 		3684ED912981CF09009559BD /* ProjectSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSummaryView.swift; sourceTree = "<group>"; };
 		36D2B94529ED4C7200F0BBA7 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		36D2B94729ED566600F0BBA7 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		36DDA9542991772B0084E9FA /* UltimateSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UltimateSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36DDA9562991772B0084E9FA /* UltimateSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimateSwiftTests.swift; sourceTree = "<group>"; };
 		36DDA95D29917F230084E9FA /* AssetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTests.swift; sourceTree = "<group>"; };
@@ -254,11 +256,13 @@
 		36279E6729E89EE900DFAAC9 /* Community */ = {
 			isa = PBXGroup;
 			children = (
+				36D2B94529ED4C7200F0BBA7 /* SignInView.swift */,
 				36279E6129E89D9E00DFAAC9 /* SharedProject.swift */,
 				36279E6329E89DD600DFAAC9 /* SharedItem.swift */,
 				36279E6529E89E0000DFAAC9 /* LoadStates.swift */,
 				36279E6829E9EDBB00DFAAC9 /* SharedProjectsView.swift */,
 				36489E0629EC73170019B117 /* SharedItemsView.swift */,
+				36D2B94729ED566600F0BBA7 /* ChatMessage.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -323,7 +327,6 @@
 				36DDA94D29902F5B0084E9FA /* Home */,
 				36DDA94F29902F690084E9FA /* Awards */,
 				36279E6729E89EE900DFAAC9 /* Community */,
-				36D2B94529ED4C7200F0BBA7 /* SignInView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -704,6 +707,7 @@
 				362021232968C2C800F13F5B /* Award.swift in Sources */,
 				3620211D296762BD00F13F5B /* SelectSomethingView.swift in Sources */,
 				36E76E1F29D21A0500CEE274 /* SKProduct-LocalizedPrice+Extension.swift in Sources */,
+				36D2B94829ED566600F0BBA7 /* ChatMessage.swift in Sources */,
 				3647C96029D2214F0055FC02 /* UnlockView.swift in Sources */,
 				36EA08252953AAFD001CBEA1 /* Main.xcdatamodeld in Sources */,
 				3677111129DA09BC00F7CB82 /* UltimateSwiftWidget.intentdefinition in Sources */,

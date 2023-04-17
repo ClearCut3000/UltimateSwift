@@ -21,6 +21,9 @@ struct UltimateSwiftApp: App {
     let unlockManager = UnlockManager(dataController: dataController)
     _dataController = StateObject(wrappedValue: dataController)
     _unlockManager = StateObject(wrappedValue: unlockManager)
+#if targetEnvironment(simulator)
+    UserDefaults.standard.set("ClearCut3000", forKey: "username")
+#endif
   }
 
   // MARK: - Body
