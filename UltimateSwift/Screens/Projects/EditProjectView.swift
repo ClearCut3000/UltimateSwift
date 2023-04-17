@@ -15,6 +15,8 @@ struct EditProjectView: View {
   @ObservedObject var project: Project
   @EnvironmentObject var dataController: DataController
   @Environment(\.presentationMode) var presentationMode
+  @AppStorage("username") var username: String?
+  @State private var showingSignIn = false
   @State private var title: String
   @State private var detail: String
   @State private var color: String
@@ -83,17 +85,7 @@ struct EditProjectView: View {
     }
     .navigationTitle("Edit Project")
     .toolbar {
-      Button {
-        let records = project.prepareCloudRecords()
-        let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
-        operation.savePolicy = .allKeys
-        operation.modifyRecordsCompletionBlock = { _, _, error in
-          if let error = error {
-            print("Error: \(error.localizedDescription)")
-          }
-        }
-        CKContainer.default().publicCloudDatabase.add(operation)
-      } label: {
+      Button(action: uploadToCloud) {
         Label("Upload to iCloud", systemImage: "icloud.and.arrow.up")
       }
     }
@@ -106,6 +98,7 @@ struct EditProjectView: View {
             primaryButton: .default(Text("Delete"), action: delete),
             secondaryButton: .cancel())
     }
+    .sheet(isPresented: $showingSignIn, content: SignInView.init)
   }
 
   // MARK: - View Methods
@@ -186,6 +179,22 @@ struct EditProjectView: View {
     guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
     if UIApplication.shared.canOpenURL(settingsUrl) {
       UIApplication.shared.open(settingsUrl)
+    }
+  }
+
+  func uploadToCloud() {
+    if let username = username {
+      let records = project.prepareCloudRecords(owner: username)
+      let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
+      operation.savePolicy = .allKeys
+      operation.modifyRecordsCompletionBlock = { _, _, error in
+        if let error = error {
+          print("Error: \(error.localizedDescription)")
+        }
+      }
+      CKContainer.default().publicCloudDatabase.add(operation)
+    } else {
+      showingSignIn = true
     }
   }
 }

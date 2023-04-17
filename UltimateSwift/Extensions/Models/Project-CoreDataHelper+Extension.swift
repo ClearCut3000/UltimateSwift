@@ -96,13 +96,13 @@ extension Project {
     }
   }
 
-  func prepareCloudRecords() -> [CKRecord] {
+  func prepareCloudRecords(owner: String) -> [CKRecord] {
     let parentName = objectID.uriRepresentation().absoluteString
     let parentID = CKRecord.ID(recordName: parentName)
     let parent = CKRecord(recordType: "Project", recordID: parentID)
     parent["title"] = projectTitle
     parent["detail"] = projectDetail
-    parent["owner"] = "ClearCut3000"
+    parent["owner"] = owner
     parent["closed"] = closed
     var records = projectItemsDefaultSorted.map { item -> CKRecord in
       let childName = item.objectID.uriRepresentation().absoluteString
