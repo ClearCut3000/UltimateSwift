@@ -117,4 +117,22 @@ extension Project {
     records.append(parent)
     return records
   }
+
+  /// detects the current iCloud status for a single projec
+  func checkCloudStatus(_ completion: @escaping (Bool) -> Void) {
+    let name = objectID.uriRepresentation().absoluteString
+    let id = CKRecord.ID(recordName: name)
+    let operation = CKFetchRecordsOperation(recordIDs: [id])
+    operation.desiredKeys = ["recordID"]
+
+    operation.fetchRecordsCompletionBlock = { records, _ in
+      if let records = records {
+        completion(records.count == 1)
+      } else {
+        completion(false)
+      }
+    }
+
+    CKContainer.default().publicCloudDatabase.add(operation)
+  }
 }

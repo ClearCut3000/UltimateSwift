@@ -28,6 +28,10 @@ struct EditProjectView: View {
   let colorColumns = [
     GridItem(.adaptive(minimum: 44))
   ]
+  enum CloudStatus {
+    case checking, exists, absent
+  }
+  @State private var cloudStatus = CloudStatus.checking
 
   // MARK: - View Init
   init(project: Project) {
@@ -188,14 +192,34 @@ struct EditProjectView: View {
       let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
       operation.savePolicy = .allKeys
       operation.modifyRecordsCompletionBlock = { _, _, error in
-        if let error = error {
-          print("Error: \(error.localizedDescription)")
-        }
+        updateCloudStatus()
       }
+      cloudStatus = .checkin
       CKContainer.default().publicCloudDatabase.add(operation)
     } else {
       showingSignIn = true
     }
+  }
+
+  func updateCloudStatus() {
+    project.checkCloudStatus { exists in
+      if exists {
+        cloudStatus = .exists
+      } else {
+        cloudStatus = .absent
+      }
+    }
+  }
+
+  func removeFromCloud() {
+    let name = project.objectID.uriRepresentation().absoluteString
+    let id = CKRecord.ID(recordName: name)
+    let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [id])
+    operation.modifyRecordsCompletionBlock = { _, _, _ in
+      updateCloudStatus()
+    }
+    cloudStatus = .checking
+    CKContainer.default().publicCloudDatabase.add(operation)
   }
 }
 

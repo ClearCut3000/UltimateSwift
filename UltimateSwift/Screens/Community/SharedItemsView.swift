@@ -19,25 +19,26 @@ struct SharedItemsView: View {
   @State private var showingSignIn = false
   @State private var newChatText = ""
   @ViewBuilder var messagesFooter: some View {
-      if username == nil {
-          Button("Sign in to comment", action: signIn)
-              .frame(maxWidth: .infinity)
-      } else {
-          VStack {
-              TextField("Enter your message", text: $newChatText)
-                  .textFieldStyle(RoundedBorderTextFieldStyle())
-                  .textCase(nil)
-              Button(action: sendChatMessage) {
-                  Text("Send")
-                      .frame(maxWidth: .infinity, minHeight: 44)
-                      .background(Color.blue)
-                      .foregroundColor(.white)
-                      .clipShape(Capsule())
-                      .contentShape(Capsule())
-              }
-          }
+    if username == nil {
+      Button("Sign in to comment", action: signIn)
+        .frame(maxWidth: .infinity)
+    } else {
+      VStack {
+        TextField("Enter your message", text: $newChatText)
+          .textFieldStyle(RoundedBorderTextFieldStyle())
+          .textCase(nil)
+        Button(action: sendChatMessage) {
+          Text("Send")
+            .frame(maxWidth: .infinity, minHeight: 44)
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .clipShape(Capsule())
+            .contentShape(Capsule())
+        }
       }
+    }
   }
+  @State private var messagesLoadState = LoadState.inactive
 
   // MARK: - View Body
   var body: some View {
@@ -62,13 +63,19 @@ struct SharedItemsView: View {
       }
       Section(header: Text("Chat about this project…"),
               footer: messagesFooter) {
-        Text("Messages go here")
+        if messagesLoadState == .success {
+          ForEach(messages) { message in
+            Text("\(Text(message.from).bold()): \(message.text)")
+              .multilineTextAlignment(.leading)
+          }
+        }
       }
     }
     .listStyle(InsetGroupedListStyle())
     .navigationTitle(project.title)
     .onAppear {
-      fetchSharedItems()
+        fetchSharedItems()
+        fetchChatMessages()
     }
     .sheet(isPresented: $showingSignIn, content: SignInView.init)
   }
@@ -122,14 +129,38 @@ struct SharedItemsView: View {
     let backupChatText = newChatText
     newChatText = ""
     CKContainer.default().publicCloudDatabase.save(message) { record, error in
-        if let error = error {
-            print(error.localizedDescription)
-            newChatText = backupChatText
-        } else if let record = record {
-            let message = ChatMessage(from: record)
-            messages.append(message)
-        }
+      if let error = error {
+        print(error.localizedDescription)
+        newChatText = backupChatText
+      } else if let record = record {
+        let message = ChatMessage(from: record)
+        messages.append(message)
+      }
     }
+  }
+
+  func fetchChatMessages() {
+    guard messagesLoadState == .inactive else { return }
+    messagesLoadState = .loading
+    let recordID = CKRecord.ID(recordName: project.id)
+    let reference = CKRecord.Reference(recordID: recordID, action: .none)
+    let pred = NSPredicate(format: "project == %@", reference)
+    let sort = NSSortDescriptor(key: "creationDate", ascending: true)
+    let query = CKQuery(recordType: "Message", predicate: pred)
+    query.sortDescriptors = [sort]
+    let operation = CKQueryOperation(query: query)
+    operation.desiredKeys = ["from", "text"]
+    operation.recordFetchedBlock = { record in
+      let message = ChatMessage(from: record)
+      messages.append(message)
+      messagesLoadState = .success
+    }
+    operation.queryCompletionBlock = { _, _ in
+      if messages.isEmpty {
+        messagesLoadState = .noResults
+      }
+    }
+    CKContainer.default().publicCloudDatabase.add(operation)
   }
 }
 
