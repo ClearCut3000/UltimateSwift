@@ -202,6 +202,9 @@ struct EditProjectView: View {
       let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
       operation.savePolicy = .allKeys
       operation.modifyRecordsCompletionBlock = { _, _, error in
+        if let error = error {
+          print("Error: \(error.localizedDescription)")
+        }
         updateCloudStatus()
       }
       cloudStatus = .checking
