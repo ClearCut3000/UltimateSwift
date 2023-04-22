@@ -32,6 +32,7 @@ struct EditProjectView: View {
     case checking, exists, absent
   }
   @State private var cloudStatus = CloudStatus.checking
+  @State private var cloudError: String?
 
   // MARK: - View Init
   init(project: Project) {
@@ -113,6 +114,12 @@ struct EditProjectView: View {
             secondaryButton: .cancel())
     }
     .sheet(isPresented: $showingSignIn, content: SignInView.init)
+    .alert(item: $cloudError) { error in
+      Alert(
+        title: Text("There was an error"),
+        message: Text(error)
+      )
+    }
   }
 
   // MARK: - View Methods
@@ -203,7 +210,7 @@ struct EditProjectView: View {
       operation.savePolicy = .allKeys
       operation.modifyRecordsCompletionBlock = { _, _, error in
         if let error = error {
-          print("Error: \(error.localizedDescription)")
+          cloudError = error.getCloudKitError()
         }
         updateCloudStatus()
       }
