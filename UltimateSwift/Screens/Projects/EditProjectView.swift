@@ -32,7 +32,7 @@ struct EditProjectView: View {
     case checking, exists, absent
   }
   @State private var cloudStatus = CloudStatus.checking
-  @State private var cloudError: String?
+  @State private var cloudError: CloudError?
 
   // MARK: - View Init
   init(project: Project) {
@@ -113,13 +113,13 @@ struct EditProjectView: View {
             primaryButton: .default(Text("Delete"), action: delete),
             secondaryButton: .cancel())
     }
-    .sheet(isPresented: $showingSignIn, content: SignInView.init)
     .alert(item: $cloudError) { error in
       Alert(
         title: Text("There was an error"),
-        message: Text(error)
+        message: Text(error.message)
       )
     }
+    .sheet(isPresented: $showingSignIn, content: SignInView.init)
   }
 
   // MARK: - View Methods
@@ -235,7 +235,10 @@ struct EditProjectView: View {
     let name = project.objectID.uriRepresentation().absoluteString
     let id = CKRecord.ID(recordName: name)
     let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [id])
-    operation.modifyRecordsCompletionBlock = { _, _, _ in
+    operation.modifyRecordsCompletionBlock = { _, _, error in
+      if let error = error {
+        cloudError = error.getCloudKitError()
+      }
       updateCloudStatus()
     }
     cloudStatus = .checking

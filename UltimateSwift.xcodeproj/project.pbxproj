@@ -32,6 +32,7 @@
 		366C731C29BD20B7009AF437 /* ItemRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C731B29BD20B7009AF437 /* ItemRowViewModel.swift */; };
 		366C732529C4E538009AF437 /* UnlockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C732429C4E538009AF437 /* UnlockManager.swift */; };
 		367482BC29F321A00052A1FC /* Error-CloudKitMessages+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367482BB29F321A00052A1FC /* Error-CloudKitMessages+Extension.swift */; };
+		367482BE29F5D0090052A1FC /* CloudError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367482BD29F5D0090052A1FC /* CloudError.swift */; };
 		3677110229DA09B700F7CB82 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3677110129DA09B700F7CB82 /* WidgetKit.framework */; };
 		3677110429DA09B700F7CB82 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3677110329DA09B700F7CB82 /* SwiftUI.framework */; };
 		3677110729DA09B700F7CB82 /* UltimateSwiftWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3677110629DA09B700F7CB82 /* UltimateSwiftWidgetBundle.swift */; };
@@ -150,6 +151,7 @@
 		366C732429C4E538009AF437 /* UnlockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockManager.swift; sourceTree = "<group>"; };
 		366C732629C4E75C009AF437 /* StoreKitConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfig.storekit; sourceTree = "<group>"; };
 		367482BB29F321A00052A1FC /* Error-CloudKitMessages+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error-CloudKitMessages+Extension.swift"; sourceTree = "<group>"; };
+		367482BD29F5D0090052A1FC /* CloudError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudError.swift; sourceTree = "<group>"; };
 		367710FF29DA09B700F7CB82 /* UltimateSwiftWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = UltimateSwiftWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3677110129DA09B700F7CB82 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		3677110329DA09B700F7CB82 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -325,6 +327,7 @@
 		36DDA94C29902F430084E9FA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				367482BD29F5D0090052A1FC /* CloudError.swift */,
 				3647C96129D381C00055FC02 /* Unlock */,
 				36DDA94E29902F630084E9FA /* Projects */,
 				36DDA94D29902F5B0084E9FA /* Home */,
@@ -709,6 +712,7 @@
 				367482BC29F321A00052A1FC /* Error-CloudKitMessages+Extension.swift in Sources */,
 				362020F02964719200F13F5B /* EditProjectView.swift in Sources */,
 				362021232968C2C800F13F5B /* Award.swift in Sources */,
+				367482BE29F5D0090052A1FC /* CloudError.swift in Sources */,
 				3620211D296762BD00F13F5B /* SelectSomethingView.swift in Sources */,
 				36E76E1F29D21A0500CEE274 /* SKProduct-LocalizedPrice+Extension.swift in Sources */,
 				36D2B94829ED566600F0BBA7 /* ChatMessage.swift in Sources */,

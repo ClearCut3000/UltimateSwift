@@ -39,6 +39,7 @@ struct SharedItemsView: View {
     }
   }
   @State private var messagesLoadState = LoadState.inactive
+  @State private var cloudError: CloudError?
 
   // MARK: - View Body
   var body: some View {
@@ -74,8 +75,12 @@ struct SharedItemsView: View {
     .listStyle(InsetGroupedListStyle())
     .navigationTitle(project.title)
     .onAppear {
-        fetchSharedItems()
-        fetchChatMessages()
+      fetchSharedItems()
+      fetchChatMessages()
+    }
+    .alert(item: $cloudError) { error in
+      Alert(title: Text("There was an error"),
+            message: Text(error.message))
     }
     .sheet(isPresented: $showingSignIn, content: SignInView.init)
   }
@@ -105,7 +110,10 @@ struct SharedItemsView: View {
       items.append(sharedItem)
       itemsLoadState = .success
     }
-    operation.queryCompletionBlock = { _, _ in
+    operation.queryCompletionBlock = { _, error in
+      if let error = error {
+        cloudError = error.getCloudKitError()
+      }
       if items.isEmpty {
         itemsLoadState = .noResults
       }
@@ -130,7 +138,7 @@ struct SharedItemsView: View {
     newChatText = ""
     CKContainer.default().publicCloudDatabase.save(message) { record, error in
       if let error = error {
-        print(error.localizedDescription)
+        cloudError = error.getCloudKitError()
         newChatText = backupChatText
       } else if let record = record {
         let message = ChatMessage(from: record)
@@ -155,7 +163,10 @@ struct SharedItemsView: View {
       messages.append(message)
       messagesLoadState = .success
     }
-    operation.queryCompletionBlock = { _, _ in
+    operation.queryCompletionBlock = { _, error in
+      if let error = error {
+        cloudError = error.getCloudKitError()
+      }
       if messages.isEmpty {
         messagesLoadState = .noResults
       }
