@@ -85,6 +85,13 @@ struct EditProjectView: View {
         Button("Delete this project") {
           showingDeleteConform.toggle()
         }
+        .accentColor(.red)
+        .alert(isPresented: $showingDeleteConform) {
+          Alert(title: Text("Delete project?"),
+                message: Text("Are you sure you want to delete this project? You will also delete all the items it contains."), // swiftlint:disable:this line_length
+                primaryButton: .default(Text("Delete"), action: delete),
+                secondaryButton: .cancel())
+        }
         .tint(.red)
       }
     }
@@ -108,12 +115,6 @@ struct EditProjectView: View {
     .onAppear(perform: updateCloudStatus)
     .onDisappear {
       dataController.save()
-    }
-    .alert(isPresented: $showingDeleteConform) {
-      Alert(title: Text("Delete project?"),
-            message: Text("Are you sure you want to delete all project? You will also delete all items it contains!"),
-            primaryButton: .default(Text("Delete"), action: delete),
-            secondaryButton: .cancel())
     }
     .alert(item: $cloudError) { error in
       Alert(
