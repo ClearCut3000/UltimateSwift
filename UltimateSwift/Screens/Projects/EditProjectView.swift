@@ -94,7 +94,9 @@ struct EditProjectView: View {
       case .checking:
         ProgressView()
       case .exists:
-        Button(action: removeFromCloud) {
+        Button {
+          removeFromCloud(deleteLocal: false)
+        } label: {
           Label("Remove from iCloud", systemImage: "icloud.slash")
         }
       case .absent:
@@ -143,8 +145,12 @@ struct EditProjectView: View {
   }
 
   func delete() {
-    dataController.delete(project)
-    presentationMode.wrappedValue.dismiss()
+    if cloudStatus == .exists {
+      removeFromCloud(deleteLocal: true)
+    } else {
+      dataController.delete(project)
+      presentationMode.wrappedValue.dismiss()
+    }
   }
 
   func colorButton(for item: String) -> some View {
@@ -231,13 +237,18 @@ struct EditProjectView: View {
     }
   }
 
-  func removeFromCloud() {
+  func removeFromCloud(deleteLocal: Bool) {
     let name = project.objectID.uriRepresentation().absoluteString
     let id = CKRecord.ID(recordName: name)
     let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [id])
     operation.modifyRecordsCompletionBlock = { _, _, error in
       if let error = error {
         cloudError = error.getCloudKitError()
+      } else {
+        if deleteLocal {
+          dataController.delete(project)
+          presentationMode.wrappedValue.dismiss()
+        }
       }
       updateCloudStatus()
     }
