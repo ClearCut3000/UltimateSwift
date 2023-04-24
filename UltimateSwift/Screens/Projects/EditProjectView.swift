@@ -116,7 +116,7 @@ struct EditProjectView: View {
     .alert(item: $cloudError) { error in
       Alert(
         title: Text("There was an error"),
-        message: Text(error.message)
+        message: Text(error.localizedMessage)
       )
     }
     .sheet(isPresented: $showingSignIn, content: SignInView.init)
