@@ -33,6 +33,8 @@
 		366C732529C4E538009AF437 /* UnlockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C732429C4E538009AF437 /* UnlockManager.swift */; };
 		367482BC29F321A00052A1FC /* Error-CloudKitMessages+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367482BB29F321A00052A1FC /* Error-CloudKitMessages+Extension.swift */; };
 		367482BE29F5D0090052A1FC /* CloudError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367482BD29F5D0090052A1FC /* CloudError.swift */; };
+		367482E129F857200052A1FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 367482E029F857200052A1FC /* Assets.xcassets */; };
+		367482E429F857200052A1FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 367482E329F857200052A1FC /* Preview Assets.xcassets */; };
 		3677110229DA09B700F7CB82 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3677110129DA09B700F7CB82 /* WidgetKit.framework */; };
 		3677110429DA09B700F7CB82 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3677110329DA09B700F7CB82 /* SwiftUI.framework */; };
 		3677110729DA09B700F7CB82 /* UltimateSwiftWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3677110629DA09B700F7CB82 /* UltimateSwiftWidgetBundle.swift */; };
@@ -152,6 +154,10 @@
 		366C732629C4E75C009AF437 /* StoreKitConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfig.storekit; sourceTree = "<group>"; };
 		367482BB29F321A00052A1FC /* Error-CloudKitMessages+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error-CloudKitMessages+Extension.swift"; sourceTree = "<group>"; };
 		367482BD29F5D0090052A1FC /* CloudError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudError.swift; sourceTree = "<group>"; };
+		367482DA29F8571E0052A1FC /* UltimateSwiftMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimateSwiftMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		367482E029F857200052A1FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		367482E329F857200052A1FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		367482E529F857200052A1FC /* UltimateSwiftMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UltimateSwiftMac.entitlements; sourceTree = "<group>"; };
 		367710FF29DA09B700F7CB82 /* UltimateSwiftWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = UltimateSwiftWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3677110129DA09B700F7CB82 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		3677110329DA09B700F7CB82 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -208,6 +214,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		367482D729F8571E0052A1FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		367710FC29DA09B700F7CB82 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,6 +281,7 @@
 				36279E6829E9EDBB00DFAAC9 /* SharedProjectsView.swift */,
 				36489E0629EC73170019B117 /* SharedItemsView.swift */,
 				36D2B94729ED566600F0BBA7 /* ChatMessage.swift */,
+				367482BD29F5D0090052A1FC /* CloudError.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -281,6 +295,24 @@
 				3647C95D29D2207C0055FC02 /* ProductView.swift */,
 			);
 			path = Unlock;
+			sourceTree = "<group>";
+		};
+		367482DB29F8571E0052A1FC /* UltimateSwiftMac */ = {
+			isa = PBXGroup;
+			children = (
+				367482E029F857200052A1FC /* Assets.xcassets */,
+				367482E529F857200052A1FC /* UltimateSwiftMac.entitlements */,
+				367482E229F857200052A1FC /* Preview Content */,
+			);
+			path = UltimateSwiftMac;
+			sourceTree = "<group>";
+		};
+		367482E229F857200052A1FC /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				367482E329F857200052A1FC /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		3677110029DA09B700F7CB82 /* Frameworks */ = {
@@ -327,7 +359,6 @@
 		36DDA94C29902F430084E9FA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				367482BD29F5D0090052A1FC /* CloudError.swift */,
 				3647C96129D381C00055FC02 /* Unlock */,
 				36DDA94E29902F630084E9FA /* Projects */,
 				36DDA94D29902F5B0084E9FA /* Home */,
@@ -414,6 +445,7 @@
 				36DDA9552991772B0084E9FA /* UltimateSwiftTests */,
 				36DDA975299BED920084E9FA /* UltimateSwiftUITests */,
 				3677110529DA09B700F7CB82 /* UltimateSwiftWidget */,
+				367482DB29F8571E0052A1FC /* UltimateSwiftMac */,
 				3677110029DA09B700F7CB82 /* Frameworks */,
 				36EA08132953AA03001CBEA1 /* Products */,
 			);
@@ -426,6 +458,7 @@
 				36DDA9542991772B0084E9FA /* UltimateSwiftTests.xctest */,
 				36DDA974299BED920084E9FA /* UltimateSwiftUITests.xctest */,
 				367710FF29DA09B700F7CB82 /* UltimateSwiftWidgetExtension.appex */,
+				367482DA29F8571E0052A1FC /* UltimateSwiftMac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -463,6 +496,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		367482D929F8571E0052A1FC /* UltimateSwiftMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 367482E629F857200052A1FC /* Build configuration list for PBXNativeTarget "UltimateSwiftMac" */;
+			buildPhases = (
+				367482D629F8571E0052A1FC /* Sources */,
+				367482D729F8571E0052A1FC /* Frameworks */,
+				367482D829F8571E0052A1FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UltimateSwiftMac;
+			productName = UltimateSwiftMac;
+			productReference = 367482DA29F8571E0052A1FC /* UltimateSwiftMac.app */;
+			productType = "com.apple.product-type.application";
+		};
 		367710FE29DA09B700F7CB82 /* UltimateSwiftWidgetExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3677111829DA09BC00F7CB82 /* Build configuration list for PBXNativeTarget "UltimateSwiftWidgetExtension" */;
@@ -546,6 +596,9 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					367482D929F8571E0052A1FC = {
+						CreatedOnToolsVersion = 14.3;
+					};
 					367710FE29DA09B700F7CB82 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -580,11 +633,21 @@
 				36DDA9532991772B0084E9FA /* UltimateSwiftTests */,
 				36DDA973299BED920084E9FA /* UltimateSwiftUITests */,
 				367710FE29DA09B700F7CB82 /* UltimateSwiftWidgetExtension */,
+				367482D929F8571E0052A1FC /* UltimateSwiftMac */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		367482D829F8571E0052A1FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				367482E429F857200052A1FC /* Preview Assets.xcassets in Resources */,
+				367482E129F857200052A1FC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		367710FD29DA09B700F7CB82 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -648,6 +711,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		367482D629F8571E0052A1FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		367710FB29DA09B700F7CB82 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -790,6 +860,64 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		367482E729F857200052A1FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = UltimateSwiftMac/UltimateSwiftMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"UltimateSwiftMac/Preview Content\"";
+				DEVELOPMENT_TEAM = CJ7JF497NG;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nnv.UltimateSwiftMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		367482E829F857200052A1FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = UltimateSwiftMac/UltimateSwiftMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"UltimateSwiftMac/Preview Content\"";
+				DEVELOPMENT_TEAM = CJ7JF497NG;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nnv.UltimateSwiftMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		3677111629DA09BC00F7CB82 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1101,6 +1229,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		367482E629F857200052A1FC /* Build configuration list for PBXNativeTarget "UltimateSwiftMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				367482E729F857200052A1FC /* Debug */,
+				367482E829F857200052A1FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3677111829DA09BC00F7CB82 /* Build configuration list for PBXNativeTarget "UltimateSwiftWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
