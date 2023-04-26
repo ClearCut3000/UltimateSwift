@@ -14,7 +14,7 @@ extension ProjectsView {
 
     // MARK: - Properties
     let dataController: DataController
-    var sortOrder = Item.SortOrder.optimazed
+    var sortOrder = Item.SortOrder.optimized
     var showClosedProjects: Bool
     private let projectsController: NSFetchedResultsController<Project>
     @Published var projects = [Project]()

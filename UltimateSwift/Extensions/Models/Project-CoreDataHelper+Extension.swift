@@ -89,7 +89,7 @@ extension Project {
     switch sortOrder {
     case .title:
       return projectItems.sorted(by: \Item.itemTitle)
-    case .optimazed:
+    case .optimized:
       return projectItemsDefaultSorted
     case .creationDate:
       return projectItems.sorted(by: \Item.itemCreationDate)

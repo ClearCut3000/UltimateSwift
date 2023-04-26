@@ -9,7 +9,7 @@ import Foundation
 
 extension Item {
   enum SortOrder {
-    case optimazed, title, creationDate
+    case optimized, title, creationDate
   }
 
   var itemTitle: String {

@@ -11,7 +11,9 @@ import SwiftUI
 struct UltimateSwiftApp: App {
 
   // MARK: - Properties
+#if os(iOS)
   @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+#endif
   @StateObject var dataController: DataController
   @StateObject var unlockManager: UnlockManager
 
@@ -38,7 +40,7 @@ struct UltimateSwiftApp: App {
           // no longer the foreground app. Use this rather than
           // scene phase so we can port to macOS, where scene
           // phase won't detect our app losing focus.
-          NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification),
+          NotificationCenter.default.publisher(for: .willResignActive),
           perform: save(_:))
         .onAppear(perform: dataController.appLaunched)
     }

@@ -67,11 +67,13 @@ struct EditProjectView: View {
         Toggle("Show reminders", isOn: $remindMe.animation().onChange {
           update()
         })
-        .alert(isPresented: $showingNotificationsError) {
-          Alert(title: Text("Oops!"),
-                message: Text("There was a problem. Please check you have notifications enabled."),
-                primaryButton: .default(Text("Check Settings"), action: showAppSettings),
-                secondaryButton: .cancel())
+        .alert("Oops!", isPresented: $showingNotificationsError) {
+#if os(iOS)
+          Button("Check Settings", action: showAppSettings)
+#endif
+          Button("OK") { }
+        } message: {
+          Text("There was a problem. Please check you have notifications enabled.")
         }
         if remindMe {
           DatePicker("Reminder Time",
@@ -203,12 +205,14 @@ struct EditProjectView: View {
     }
   }
 
+#if os(iOS)
   func showAppSettings() {
     guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
     if UIApplication.shared.canOpenURL(settingsUrl) {
       UIApplication.shared.open(settingsUrl)
     }
   }
+#endif
 
   func uploadToCloud() {
     if let username = username {

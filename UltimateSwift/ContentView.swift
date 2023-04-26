@@ -54,8 +54,9 @@ struct ContentView: View {
     .onOpenURL(perform: openURL)
     .userActivity(neewProjectActivity) { activity in
       activity.title = "New Project"
+#if os(iOS) || os(watchOS)
       activity.isEligibleForPrediction = true
-
+#endif
     }
   }
 
