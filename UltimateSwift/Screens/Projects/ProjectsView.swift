@@ -35,6 +35,9 @@ struct ProjectsView: View {
             }
           }
         }
+#if os(macOS)
+        .collapsible(false)
+#endif
       }
     }
     .listStyle(InsetGroupedListStyle())
