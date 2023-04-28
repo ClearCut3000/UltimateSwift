@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Extension for using NSColors on macOS
 extension Color {
   static let systemGroupedBackground = Color(NSColor.windowBackgroundColor)
   static let secondarySystemGroupedBackground = Color(NSColor.controlBackgroundColor)
