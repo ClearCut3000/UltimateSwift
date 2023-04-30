@@ -12,6 +12,15 @@ struct ItemListView: View {
   // MARK: - View Properties
   let title: LocalizedStringKey
   @Binding var items: ArraySlice<Item>
+#if os(macOS)
+  let circleSize = 16.0
+  let circleStrokeWidth = 2.0
+  let horizontalSpacing = 10.0
+#else
+  let circleSize = 44.0
+  let circleStrokeWidth = 3.0
+  let horizontalSpacing = 20.0
+#endif
 
   // MARK: - View Body
   var body: some View {
@@ -24,10 +33,11 @@ struct ItemListView: View {
         .padding(.top)
       ForEach(items) { item in
         NavigationLink(destination: EditItemView(item: item)) {
-          HStack(spacing: 20) {
+          HStack(spacing: horizontalSpacing) {
             Circle()
-              .strokeBorder(Color(item.project?.projectColor ?? "Light Blue"), lineWidth: 3)
-              .frame(width: 44, height: 44)
+              .strokeBorder(Color(item.project?.projectColor ?? "Light Blue"),
+                            lineWidth: circleStrokeWidth)
+              .frame(width: circleSize, height: circleSize)
             VStack(alignment: .leading) {
               Text(item.itemTitle)
                 .font(.title2)
