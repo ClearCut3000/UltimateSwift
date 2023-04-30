@@ -26,7 +26,7 @@ struct ItemListView: View {
         NavigationLink(destination: EditItemView(item: item)) {
           HStack(spacing: 20) {
             Circle()
-              .stroke(Color(item.project?.projectColor ?? "Light Blue"), lineWidth: 3)
+              .strokeBorder(Color(item.project?.projectColor ?? "Light Blue"), lineWidth: 3)
               .frame(width: 44, height: 44)
             VStack(alignment: .leading) {
               Text(item.itemTitle)
@@ -40,10 +40,12 @@ struct ItemListView: View {
               }
             }
           }
+#if os(iOS)
           .padding()
           .background(Color.secondarySystemGroupedBackground)
           .cornerRadius(10)
           .shadow(color: Color.black.opacity(0.2), radius: 5)
+#endif
         }
       }
     }
